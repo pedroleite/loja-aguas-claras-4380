@@ -12,11 +12,10 @@
     header {
       background: var(--color-text);
       color: var(--color-bg);
-      padding: var(--space-4) var(--space-8);
+      padding: var(--space-4) var(--space-6);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
       gap: var(--space-4);
       font-size: 0.9rem;
       border-bottom: 2px solid var(--color-accent);
@@ -24,35 +23,45 @@
       top: 0;
       z-index: 100;
     }
-    
-    header h1 {
-      font-size: 1.2rem;
-      font-weight: var(--font-heading-weight);
-      letter-spacing: 0.3px;
+
+    .brand {
       display: flex;
       align-items: center;
-      gap: var(--space-4);
-      margin: 0;
+      gap: var(--space-3);
+      min-width: 0;
+      color: var(--color-bg);
     }
-    
-    header .logo {
-      width: 48px;
-      height: 48px;
+
+    h1.site-title {
+      font-size: 1.1rem;
+      font-weight: var(--font-heading-weight);
+      letter-spacing: 0.3px;
+      line-height: 1.25;
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    h1.site-title .brand-short { display: none; }
+
+    .brand .logo {
+      width: 44px;
+      height: 44px;
       flex-shrink: 0;
     }
-    
+
     header nav {
       display: flex;
       gap: var(--space-4);
       list-style: none;
       margin: 0;
       padding: 0;
-      flex-wrap: wrap;
-      justify-content: flex-end;
+      flex-shrink: 0;
     }
-    
-    header nav a { 
-      color: var(--color-accent); 
+
+    header nav a {
+      color: var(--color-accent);
       transition: opacity 0.3s;
       font-size: 0.85rem;
       white-space: nowrap;
@@ -68,6 +77,7 @@
       gap: 5px;
       width: 32px;
       height: 32px;
+      flex-shrink: 0;
       cursor: pointer;
     }
 
@@ -77,13 +87,49 @@
       height: 2px;
       background: var(--color-accent);
     }
-    
+
+    @media (max-width: 980px) {
+      h1.site-title .brand-full { display: none; }
+      h1.site-title .brand-short { display: inline; }
+      .nav-toggle-label { display: flex; }
+      header nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: var(--color-text);
+        border-bottom: 2px solid var(--color-accent);
+        box-shadow: var(--shadow-md);
+      }
+      header nav a {
+        padding: var(--space-4) var(--space-6);
+        border-top: 1px solid rgba(255,255,255,0.1);
+      }
+      .nav-toggle-checkbox:checked ~ nav {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header { padding: var(--space-3) var(--space-4); }
+      .brand .logo { width: 36px; height: 36px; }
+      h1.site-title { font-size: 0.95rem; }
+    }
+
     main {
       max-width: 1100px;
       margin: 0 auto;
       padding: var(--space-8) var(--space-6);
     }
-    
+
+    section {
+      margin-bottom: 5rem;
+    }
+
     section > h2 {
       font-family: var(--font-heading);
       font-size: 2rem;
@@ -94,7 +140,19 @@
       border-bottom: 2px solid var(--color-accent);
       display: inline-block;
     }
-    
+
+    @media (max-width: 768px) {
+      main { padding: var(--space-6) var(--space-4); }
+      section { margin-bottom: 3rem; }
+      section > h2 { font-size: 1.5rem; }
+    }
+
+    @media (max-width: 480px) {
+      main { padding: var(--space-4) var(--space-3); }
+      section { margin-bottom: 2.25rem; }
+      section > h2 { font-size: 1.3rem; margin-bottom: var(--space-4); }
+    }
+
     section p {
       font-size: 1rem;
       line-height: 1.8;
@@ -127,10 +185,9 @@
     }
     
     .value-expanded p {
-      color: var(--color-neutral-700);
+      color: var(--color-neutral-800);
       margin-bottom: var(--space-3);
     }
-    
     footer {
       background: var(--color-text);
       color: var(--color-bg);
@@ -138,16 +195,16 @@
       margin-top: 5rem;
       border-top: 2px solid var(--color-accent);
     }
-    
+
     .footer-content {
       max-width: 1100px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: var(--space-8);
       margin-bottom: var(--space-6);
     }
-    
+
     .footer-section h4 {
       font-family: var(--font-heading);
       font-size: 1.1rem;
@@ -155,66 +212,64 @@
       margin-bottom: var(--space-4);
       color: var(--color-accent);
     }
-    
+
     .footer-section p {
       font-size: 0.85rem;
       line-height: 1.8;
       color: #c9c4ba;
       margin-bottom: 0;
     }
-    
+
     .footer-section a {
       color: var(--color-accent);
       transition: opacity 0.3s;
     }
-    
+
     .footer-section a:hover {
       opacity: 0.85;
       text-decoration: underline;
     }
-    
+
     .footer-section ul {
       list-style: none;
       padding: 0;
       margin: 0;
     }
-    
+
     .footer-section li {
       margin-bottom: var(--space-2);
     }
-    
+
     .footer-bottom {
       border-top: 1px solid color-mix(in srgb, var(--color-accent) 30%, transparent);
       padding-top: var(--space-6);
       text-align: center;
       font-size: 0.8rem;
-      color: #8f8983;
+      color: #a19b93;
       max-width: 1100px;
       margin: 0 auto;
     }
-    
+
     @media (max-width: 768px) {
-      .nav-toggle-label { display: flex; }
-      header nav {
-        display: none;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-        gap: var(--space-3);
-        margin-top: var(--space-4);
-      }
-      .nav-toggle-checkbox:checked ~ nav {
-        display: flex;
-      }
-      main { padding: var(--space-6) var(--space-4); }
-      section > h2 { font-size: 1.5rem; }
+      footer { padding: var(--space-6) var(--space-4); margin-top: 3rem; }
+      .footer-content { gap: var(--space-6); text-align: center; }
     }
-  </style>
+
+    @media (max-width: 480px) {
+      footer { padding: var(--space-5) var(--space-3); }
+      .footer-content { grid-template-columns: 1fr; gap: var(--space-5); }
+    }
+
+    
+    </style>
 </head>
 <body>
 
 <header>
-  <h1><img src="uploads/brasao.png" alt="Brasão" class="logo">Loja Maçônica Águas Claras nº 4380</h1>
+  <a href="index.html" class="brand">
+    <img src="uploads/brasao.png" alt="Brasão" class="logo">
+    <h1 class="site-title"><span class="brand-full">Loja Maçônica Águas Claras nº 4380</span><span class="brand-short">Águas Claras nº 4380</span></h1>
+  </a>
   <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox">
   <label for="nav-toggle" class="nav-toggle-label" aria-label="Abrir menu"><span></span><span></span><span></span></label>
   <nav>
