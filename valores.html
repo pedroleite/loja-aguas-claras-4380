@@ -58,6 +58,25 @@
       white-space: nowrap;
     }
     header nav a:hover { opacity: 0.75; text-decoration: none; }
+
+    .nav-toggle-checkbox { display: none; }
+
+    .nav-toggle-label {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+    }
+
+    .nav-toggle-label span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--color-accent);
+    }
     
     main {
       max-width: 1100px;
@@ -175,6 +194,18 @@
     }
     
     @media (max-width: 768px) {
+      .nav-toggle-label { display: flex; }
+      header nav {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: var(--space-3);
+        margin-top: var(--space-4);
+      }
+      .nav-toggle-checkbox:checked ~ nav {
+        display: flex;
+      }
       main { padding: var(--space-6) var(--space-4); }
       section > h2 { font-size: 1.5rem; }
     }
@@ -184,6 +215,8 @@
 
 <header>
   <h1><img src="uploads/brasao.png" alt="Brasão" class="logo">Loja Maçônica Águas Claras nº 4380</h1>
+  <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox">
+  <label for="nav-toggle" class="nav-toggle-label" aria-label="Abrir menu"><span></span><span></span><span></span></label>
   <nav>
     <a href="index.html">Início</a>
     <a href="valores.html">Valores</a>
