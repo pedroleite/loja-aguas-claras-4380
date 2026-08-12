@@ -1,480 +1,473 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
+<title>Loja Maçônica Águas Claras nº 4380 — GOB/GODF</title>
+<link rel="stylesheet" href="_ds/classical-a9adfc2f-7c78-4c71-94f4-1b19c722f62c/styles.css">
+<style>
+  a { color: var(--color-accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  header {
+    background: var(--color-text);
+    color: var(--color-bg);
+    padding: var(--space-4) var(--space-8);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    font-size: 0.9rem;
+    border-bottom: 2px solid var(--color-accent);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  header h1 {
+    font-size: 1.2rem;
+    font-weight: var(--font-heading-weight);
+    letter-spacing: 0.3px;
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin: 0;
+  }
+
+  header .logo {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+  }
+
+  header nav {
+    display: flex;
+    gap: var(--space-4);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  header nav a {
+    color: var(--color-accent);
+    transition: opacity 0.3s;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+  header nav a:hover { opacity: 0.75; text-decoration: none; }
+
+  @media (max-width: 768px) {
+    header { flex-direction: column; gap: var(--space-4); text-align: center; }
+    header nav { flex-direction: column; gap: var(--space-3); }
+  }
+
+  .hero {
+    position: relative;
+    height: 500px;
+    background: var(--color-surface);
+    overflow: hidden;
+  }
+
+  .hero-image {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.9s ease-in-out;
+  }
+
+  .hero-image.active {
+    opacity: 1;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(32,31,29,0.75), rgba(32,31,29,0) 55%);
+    z-index: 5;
+  }
+
+  .hero-caption {
+    position: absolute;
+    left: var(--space-8);
+    bottom: var(--space-8);
+    z-index: 10;
+    color: white;
+  }
+
+  .hero-caption .kicker {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    display: block;
+    margin-bottom: var(--space-2);
+  }
+
+  .hero-caption .place {
+    font-size: 0.85rem;
+    opacity: 0.85;
+  }
+
+  .hero-overlay {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    color: var(--color-bg);
+    padding: var(--space-8);
+    background: rgba(45, 43, 43, 0.7);
+    border-radius: var(--radius-md);
+    max-width: 700px;
+  }
+
+  .hero-overlay h2 {
+    font-family: var(--font-heading);
+    font-size: 2.4rem;
+    font-weight: 400;
+    margin-bottom: var(--space-4);
+    line-height: 1.25;
+  }
+
+  .hero-overlay p {
+    font-size: 1.05rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #e8e6e1;
+  }
+
+  .carousel-controls {
+    position: absolute;
+    bottom: var(--space-8);
+    right: var(--space-8);
+    z-index: 20;
+    display: flex;
+    gap: var(--space-3);
+  }
+
+  .carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: background 0.3s;
+    border: none;
+  }
+
+  .carousel-dot.active {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: var(--space-8) var(--space-6);
+  }
+
+  section {
+    margin-bottom: 5rem;
+  }
+
+  section > h2 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-4);
+    border-bottom: 2px solid var(--color-accent);
+    display: inline-block;
+  }
+
+  .welcome p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--color-text);
+    max-width: 950px;
+    margin-bottom: var(--space-4);
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-8);
+    margin-top: var(--space-6);
+  }
+
+  .value-card {
+    background: var(--color-bg);
+    padding: var(--space-6);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-divider);
+    border-left: 3px solid var(--color-accent);
+    transition: box-shadow 0.3s, transform 0.3s;
+    cursor: pointer;
+  }
+
+  .value-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  .value-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin-bottom: var(--space-3);
+  }
+
+  .value-card p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--color-neutral-700);
+  }
+
+  .value-card .value-tagline {
+    font-style: italic;
+    color: var(--color-accent);
+    margin-bottom: 0;
+  }
+
+  .value-card .value-context {
+    margin-top: var(--space-4);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-divider);
+  }
+
+  .value-card .value-hint {
+    font-size: 0.75rem;
+    color: var(--color-neutral-700);
+    opacity: 0.6;
+    margin-top: var(--space-4);
+    margin-bottom: 0;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-8);
+    margin-top: var(--space-6);
+  }
+
+  .testimonial-card {
+    background: white;
+    padding: var(--space-8);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-divider);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .testimonial-card p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    font-style: italic;
+    margin-bottom: var(--space-4);
+  }
+
+  .testimonial-author {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-accent);
+  }
+
+  .testimonial-role {
+    font-size: 0.8rem;
+    color: var(--color-neutral-700);
+    display: block;
+  }
+
+  .final-cta {
+    text-align: center;
+    background: var(--color-text);
+    color: var(--color-bg);
+    padding: var(--space-8) var(--space-6);
+    border-radius: var(--radius-md);
+    margin-bottom: 5rem;
+  }
+
+  .final-cta h2 {
+    color: var(--color-bg);
+    border-bottom: none;
+    font-size: 1.8rem;
+  }
+
+  .final-cta p {
+    max-width: 650px;
+    margin: 0 auto var(--space-6);
+    color: #c9c4ba;
+    line-height: 1.7;
+  }
+
+  .final-cta-buttons {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .final-cta-buttons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 220px;
+    padding: var(--space-3) var(--space-8);
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-decoration: none;
+    box-sizing: border-box;
+    margin-top: 0;
+    transition: opacity 0.3s, background 0.3s;
+  }
+
+  .final-cta .cta-button-solid {
+    background: var(--color-accent);
+    color: white;
+    border: 1px solid var(--color-accent);
+  }
+
+  .final-cta .cta-button-solid:hover {
+    opacity: 0.9;
+  }
+
+  .final-cta .cta-button {
+    color: var(--color-bg);
+    border: 1px solid var(--color-bg);
+    background: transparent;
+  }
+
+  .final-cta .cta-button:hover {
+    background: rgba(255,255,255,0.1);
+  }
+
+  .cta-button {
+    display: inline-block;
+    margin-top: var(--space-6);
+    padding: var(--space-3) var(--space-8);
+    background: transparent;
+    color: var(--color-accent);
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+  }
+
+  .cta-button:hover {
+    background: var(--color-accent-100);
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-6);
+    margin-top: var(--space-8);
+    background: white;
+    padding: var(--space-8);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-divider);
+  }
+
+  .stat-item {
+    text-align: center;
+  }
+
+  .stat-number {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--color-accent);
+    margin-bottom: var(--space-2);
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+    color: var(--color-neutral-700);
+    line-height: 1.5;
+  }
+
+  footer {
+    background: var(--color-text);
+    color: var(--color-bg);
+    padding: var(--space-8) var(--space-6);
+    margin-top: 5rem;
+    border-top: 2px solid var(--color-accent);
+  }
+
+  .footer-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-8);
+    margin-bottom: var(--space-6);
+  }
+
+  .footer-section h4 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: var(--space-4);
+    color: var(--color-accent);
+  }
+
+  .footer-section p {
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: #c9c4ba;
+  }
+
+  .footer-section a {
+    color: var(--color-accent);
+    transition: opacity 0.3s;
+  }
+
+  .footer-section a:hover {
+    opacity: 0.85;
+    text-decoration: underline;
+  }
+
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-section li {
+    margin-bottom: var(--space-2);
+  }
+
+  .footer-bottom {
+    border-top: 1px solid color-mix(in srgb, var(--color-accent) 30%, transparent);
+    padding-top: var(--space-6);
+    text-align: center;
+    font-size: 0.8rem;
+    color: #8f8983;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    main { padding: var(--space-6) var(--space-4); }
+    section { margin-bottom: 3rem; }
+    section > h2 { font-size: 1.5rem; }
+    .hero { height: 380px; }
+    .hero-overlay h2 { font-size: 1.7rem; }
+    .hero-overlay p { font-size: 0.95rem; }
+    .stat-number { font-size: 1.8rem; }
+  }
+</style>
 </head>
 <body>
-<x-dc>
-<helmet>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Loja Maçônica Águas Claras nº 4380 — GOB/GODF</title>
-  <link rel="stylesheet" href="_ds/classical-a9adfc2f-7c78-4c71-94f4-1b19c722f62c/styles.css">
-  <script src="_ds/classical-a9adfc2f-7c78-4c71-94f4-1b19c722f62c/_ds_bundle.js"></script>
-  <style>
-    a { color: var(--color-accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    header {
-      background: var(--color-text);
-      color: var(--color-bg);
-      padding: var(--space-4) var(--space-8);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: var(--space-4);
-      font-size: 0.9rem;
-      border-bottom: 2px solid var(--color-accent);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    
-    header h1 {
-      font-size: 1.2rem;
-      font-weight: var(--font-heading-weight);
-      letter-spacing: 0.3px;
-      display: flex;
-      align-items: center;
-      gap: var(--space-4);
-      margin: 0;
-    }
-    
-    header .logo {
-      width: 48px;
-      height: 48px;
-      flex-shrink: 0;
-    }
-    
-    header nav {
-      display: flex;
-      gap: var(--space-4);
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-    
-    header nav a { 
-      color: var(--color-accent); 
-      transition: opacity 0.3s;
-      font-size: 0.85rem;
-      white-space: nowrap;
-    }
-    header nav a:hover { opacity: 0.75; text-decoration: none; }
-    
-    @media (max-width: 768px) {
-      header { flex-direction: column; gap: var(--space-4); text-align: center; }
-      header nav { flex-direction: column; gap: var(--space-3); }
-    }
-    
-    .hero {
-      position: relative;
-      height: 500px;
-      background: var(--color-surface);
-      overflow: hidden;
-    }
-    
-    .hero-image {
-      position: absolute;
-      inset: 0;
-      background-size: cover;
-      background-position: center;
-      opacity: 0;
-      transition: opacity 0.9s ease-in-out;
-    }
-    
-    .hero-image.active {
-      opacity: 1;
-    }
-    
-    .hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(32,31,29,0.75), rgba(32,31,29,0) 55%);
-      z-index: 5;
-    }
-    
-    .hero-caption {
-      position: absolute;
-      left: var(--space-8);
-      bottom: var(--space-8);
-      z-index: 10;
-      color: white;
-    }
-    
-    .hero-caption .kicker {
-      font-size: 0.8rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--color-accent);
-      display: block;
-      margin-bottom: var(--space-2);
-    }
-    
-    .hero-caption .place {
-      font-size: 0.85rem;
-      opacity: 0.85;
-    }
-    
-    .hero-overlay {
-      position: relative;
-      z-index: 10;
-      text-align: center;
-      color: var(--color-bg);
-      padding: var(--space-8);
-      background: rgba(45, 43, 43, 0.7);
-      border-radius: var(--radius-md);
-      max-width: 700px;
-    }
-    
-    .hero-overlay h2 {
-      font-family: var(--font-heading);
-      font-size: 2.4rem;
-      font-weight: 400;
-      margin-bottom: var(--space-4);
-      line-height: 1.25;
-    }
-    
-    .hero-overlay p {
-      font-size: 1.05rem;
-      font-weight: 400;
-      line-height: 1.6;
-      color: #e8e6e1;
-    }
-    
-    .carousel-controls {
-      position: absolute;
-      bottom: var(--space-8);
-      right: var(--space-8);
-      z-index: 20;
-      display: flex;
-      gap: var(--space-3);
-    }
-    
-    .carousel-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.4);
-      cursor: pointer;
-      transition: background 0.3s;
-      border: none;
-    }
-    
-    .carousel-dot.active {
-      background: var(--color-accent);
-      border-color: var(--color-accent);
-    }
-    
-    main {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: var(--space-8) var(--space-6);
-    }
-    
-    section {
-      margin-bottom: 5rem;
-    }
-    
-    section > h2 {
-      font-family: var(--font-heading);
-      font-size: 2rem;
-      font-weight: 400;
-      color: var(--color-text);
-      margin-bottom: var(--space-6);
-      padding-bottom: var(--space-4);
-      border-bottom: 2px solid var(--color-accent);
-      display: inline-block;
-    }
-    
-    .welcome p {
-      font-size: 1rem;
-      line-height: 1.8;
-      color: var(--color-text);
-      max-width: 950px;
-      margin-bottom: var(--space-4);
-    }
-    
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: var(--space-8);
-      margin-top: var(--space-6);
-    }
-    
-    .value-card {
-      background: var(--color-bg);
-      padding: var(--space-6);
-      border-radius: var(--radius-md);
-      border: 1px solid var(--color-divider);
-      border-left: 3px solid var(--color-accent);
-      transition: box-shadow 0.3s, transform 0.3s;
-      cursor: pointer;
-    }
-    
-    .value-card:hover {
-      box-shadow: var(--shadow-md);
-      transform: translateY(-2px);
-    }
-    
-    .value-card h3 {
-      font-family: var(--font-heading);
-      font-size: 1.4rem;
-      font-weight: 400;
-      color: var(--color-text);
-      margin-bottom: var(--space-3);
-    }
-    
-    .value-card p {
-      font-size: 0.95rem;
-      line-height: 1.7;
-      color: var(--color-neutral-700);
-    }
-    
-    .value-card .value-tagline {
-      font-style: italic;
-      color: var(--color-accent);
-      margin-bottom: 0;
-    }
-    
-    .value-card .value-context {
-      margin-top: var(--space-4);
-      padding-top: var(--space-4);
-      border-top: 1px solid var(--color-divider);
-    }
-    
-    .value-card .value-hint {
-      font-size: 0.75rem;
-      color: var(--color-neutral-700);
-      opacity: 0.6;
-      margin-top: var(--space-4);
-      margin-bottom: 0;
-    }
-    
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: var(--space-8);
-      margin-top: var(--space-6);
-    }
-    
-    .testimonial-card {
-      background: white;
-      padding: var(--space-8);
-      border-radius: var(--radius-md);
-      border: 1px solid var(--color-divider);
-      box-shadow: var(--shadow-sm);
-    }
-    
-    .testimonial-card p {
-      font-size: 0.95rem;
-      line-height: 1.7;
-      color: var(--color-text);
-      font-style: italic;
-      margin-bottom: var(--space-4);
-    }
-    
-    .testimonial-author {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--color-accent);
-    }
-    
-    .testimonial-role {
-      font-size: 0.8rem;
-      color: var(--color-neutral-700);
-      display: block;
-    }
-    
-    .final-cta {
-      text-align: center;
-      background: var(--color-text);
-      color: var(--color-bg);
-      padding: var(--space-8) var(--space-6);
-      border-radius: var(--radius-md);
-      margin-bottom: 5rem;
-    }
-    
-    .final-cta h2 {
-      color: var(--color-bg);
-      border-bottom: none;
-      font-size: 1.8rem;
-    }
-    
-    .final-cta p {
-      max-width: 650px;
-      margin: 0 auto var(--space-6);
-      color: #c9c4ba;
-      line-height: 1.7;
-    }
-    
-    .final-cta-buttons {
-      display: flex;
-      gap: var(--space-4);
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    
-    .final-cta-buttons a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 220px;
-      padding: var(--space-3) var(--space-8);
-      border-radius: var(--radius-md);
-      font-size: 0.9rem;
-      font-weight: 400;
-      text-decoration: none;
-      box-sizing: border-box;
-      margin-top: 0;
-      transition: opacity 0.3s, background 0.3s;
-    }
-    
-    .final-cta .cta-button-solid {
-      background: var(--color-accent);
-      color: white;
-      border: 1px solid var(--color-accent);
-    }
-    
-    .final-cta .cta-button-solid:hover {
-      opacity: 0.9;
-    }
-    
-    .final-cta .cta-button {
-      color: var(--color-bg);
-      border: 1px solid var(--color-bg);
-      background: transparent;
-    }
-    
-    .final-cta .cta-button:hover {
-      background: rgba(255,255,255,0.1);
-    }
-    
-    .cta-button {
-      display: inline-block;
-      margin-top: var(--space-6);
-      padding: var(--space-3) var(--space-8);
-      background: transparent;
-      color: var(--color-accent);
-      border: 1px solid var(--color-accent);
-      border-radius: var(--radius-md);
-      font-size: 0.9rem;
-      font-weight: 400;
-      text-decoration: none;
-      transition: background 0.3s, color 0.3s;
-    }
-    
-    .cta-button:hover {
-      background: var(--color-accent-100);
-    }
-    
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: var(--space-6);
-      margin-top: var(--space-8);
-      background: white;
-      padding: var(--space-8);
-      border-radius: var(--radius-md);
-      border: 1px solid var(--color-divider);
-    }
-    
-    .stat-item {
-      text-align: center;
-    }
-    
-    .stat-number {
-      font-family: var(--font-heading);
-      font-size: 2.2rem;
-      font-weight: 400;
-      color: var(--color-accent);
-      margin-bottom: var(--space-2);
-    }
-    
-    .stat-label {
-      font-size: 0.9rem;
-      color: var(--color-neutral-700);
-      line-height: 1.5;
-    }
-    
-    footer {
-      background: var(--color-text);
-      color: var(--color-bg);
-      padding: var(--space-8) var(--space-6);
-      margin-top: 5rem;
-      border-top: 2px solid var(--color-accent);
-    }
-    
-    .footer-content {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: var(--space-8);
-      margin-bottom: var(--space-6);
-    }
-    
-    .footer-section h4 {
-      font-family: var(--font-heading);
-      font-size: 1.1rem;
-      font-weight: 400;
-      margin-bottom: var(--space-4);
-      color: var(--color-accent);
-    }
-    
-    .footer-section p {
-      font-size: 0.85rem;
-      line-height: 1.8;
-      color: #c9c4ba;
-    }
-    
-    .footer-section a {
-      color: var(--color-accent);
-      transition: opacity 0.3s;
-    }
-    
-    .footer-section a:hover {
-      opacity: 0.85;
-      text-decoration: underline;
-    }
-    
-    .footer-section ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    
-    .footer-section li {
-      margin-bottom: var(--space-2);
-    }
-    
-    .footer-bottom {
-      border-top: 1px solid color-mix(in srgb, var(--color-accent) 30%, transparent);
-      padding-top: var(--space-6);
-      text-align: center;
-      font-size: 0.8rem;
-      color: #8f8983;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    
-    @media (max-width: 768px) {
-      main { padding: var(--space-6) var(--space-4); }
-      section { margin-bottom: 3rem; }
-      section > h2 { font-size: 1.5rem; }
-      .hero { height: 380px; }
-      .hero-overlay h2 { font-size: 1.7rem; }
-      .hero-overlay p { font-size: 0.95rem; }
-      .stat-number { font-size: 1.8rem; }
-    }
-  </style>
-</helmet>
 
 <header>
   <h1><img src="uploads/brasao.png" alt="Brasão" class="logo">Loja Maçônica Águas Claras nº 4380</h1>
@@ -492,19 +485,19 @@
 </header>
 
 <div class="hero">
-  <div class="{{ slide0 }}" style="background-image: url('uploads/sessao-interior.jfif')"></div>
-  <div class="{{ slide1 }}" style="background-image: url('uploads/palestra-shriners.jpg')"></div>
-  <div class="{{ slide2 }}" style="background-image: url('uploads/predio-fachada.jpg'); background-position: center 25%;"></div>
-  
+  <div class="hero-image active" style="background-image: url('uploads/sessao-interior.jfif')"></div>
+  <div class="hero-image" style="background-image: url('uploads/palestra-shriners.jpg')"></div>
+  <div class="hero-image" style="background-image: url('uploads/predio-fachada.jpg'); background-position: center 25%;"></div>
+
   <div class="hero-caption">
-    <span class="kicker">{{ heroCaption.kicker }}</span>
-    <span class="place">{{ heroCaption.place }}</span>
+    <span class="kicker">Sessão Solene</span>
+    <span class="place">Águas Claras, Brasília-DF</span>
   </div>
-  
+
   <div class="carousel-controls">
-    <div class="{{ dot0 }}" onClick="{{ goToSlide(0) }}"></div>
-    <div class="{{ dot1 }}" onClick="{{ goToSlide(1) }}"></div>
-    <div class="{{ dot2 }}" onClick="{{ goToSlide(2) }}"></div>
+    <div class="carousel-dot active"></div>
+    <div class="carousel-dot"></div>
+    <div class="carousel-dot"></div>
   </div>
 </div>
 
@@ -519,35 +512,29 @@
   <section id="valores">
     <h2>Os Princípios que Fundamentam a Ordem</h2>
     <div class="values-grid">
-      <div class="value-card" onClick="{{ toggleValue(0) }}">
+      <div class="value-card">
         <h3>Amor Fraternal</h3>
         <p class="value-tagline">A irmandade que transcende diferenças.</p>
-        <sc-if value="{{ openValue === 0 }}">
-          <div class="value-context">
-            <p>Cultivamos a irmandade genuína entre nossos membros, transcendendo todas as barreiras sociais, econômicas e culturais, unindo homens em torno de ideais comuns. Ao acolher novos irmãos e apoiar uns aos outros, vivemos esse valor em cada sessão.</p>
-          </div>
-        </sc-if>
-        <p class="value-hint">{{ openValue === 0 ? "Clique para recolher" : "Clique para saber mais" }}</p>
+        <div class="value-context" style="display: none;">
+          <p>Cultivamos a irmandade genuína entre nossos membros, transcendendo todas as barreiras sociais, econômicas e culturais, unindo homens em torno de ideais comuns. Ao acolher novos irmãos e apoiar uns aos outros, vivemos esse valor em cada sessão.</p>
+        </div>
+        <p class="value-hint">Clique para saber mais</p>
       </div>
-      <div class="value-card" onClick="{{ toggleValue(1) }}">
+      <div class="value-card">
         <h3>Caridade</h3>
         <p class="value-tagline">Ação que transforma vidas.</p>
-        <sc-if value="{{ openValue === 1 }}">
-          <div class="value-context">
-            <p>Dedicamos nossos esforços ao auxílio dos necessitados e ao apoio de causas sociais que transformam vidas, atuando como agentes de mudança positiva na comunidade. Nossa caridade vai além da doação — busca educar e restaurar dignidade.</p>
-          </div>
-        </sc-if>
-        <p class="value-hint">{{ openValue === 1 ? "Clique para recolher" : "Clique para saber mais" }}</p>
+        <div class="value-context" style="display: none;">
+          <p>Dedicamos nossos esforços ao auxílio dos necessitados e ao apoio de causas sociais que transformam vidas, atuando como agentes de mudança positiva na comunidade. Nossa caridade vai além da doação — busca educar e restaurar dignidade.</p>
+        </div>
+        <p class="value-hint">Clique para saber mais</p>
       </div>
-      <div class="value-card" onClick="{{ toggleValue(2) }}">
+      <div class="value-card">
         <h3>Verdade</h3>
         <p class="value-tagline">Honra em cada ação.</p>
-        <sc-if value="{{ openValue === 2 }}">
-          <div class="value-context">
-            <p>Buscamos a verdade em todas as suas formas, atuando com honra pessoal e transparência em todas as ações, dentro e fora da Loja. Nada em nosso propósito ou conduta é oculto — trabalhamos à luz do dia.</p>
-          </div>
-        </sc-if>
-        <p class="value-hint">{{ openValue === 2 ? "Clique para recolher" : "Clique para saber mais" }}</p>
+        <div class="value-context" style="display: none;">
+          <p>Buscamos a verdade em todas as suas formas, atuando com honra pessoal e transparência em todas as ações, dentro e fora da Loja. Nada em nosso propósito ou conduta é oculto — trabalhamos à luz do dia.</p>
+        </div>
+        <p class="value-hint">Clique para saber mais</p>
       </div>
     </div>
     <a href="valores.html" class="cta-button">Conheça Melhor Nossos Valores →</a>
@@ -578,19 +565,19 @@
     <h2>Nossa Comunidade</h2>
     <div class="stats">
       <div class="stat-item">
-        <div class="stat-number">{{ estatisticas.membros }}</div>
+        <div class="stat-number">45+</div>
         <div class="stat-label">Membros Ativos</div>
       </div>
       <div class="stat-item">
-        <div class="stat-number">{{ estatisticas.anos }}</div>
+        <div class="stat-number">10</div>
         <div class="stat-label">Anos de Tradição</div>
       </div>
       <div class="stat-item">
-        <div class="stat-number">{{ estatisticas.projetos }}</div>
+        <div class="stat-number">12</div>
         <div class="stat-label">Projetos Sociais</div>
       </div>
       <div class="stat-item">
-        <div class="stat-number">{{ estatisticas.sessoes }}</div>
+        <div class="stat-number">2</div>
         <div class="stat-label">Sessões por Mês</div>
       </div>
     </div>
@@ -620,13 +607,13 @@
       <strong>Grande Oriente do Distrito Federal (GODF)</strong><br>
       Rito de York do GOB - Grande Oriente do Brasil</p>
     </div>
-    
+
     <div class="footer-section">
       <h4>Fundação</h4>
       <p>30 de abril de 2015<br>
       Águas Claras, Brasília-DF</p>
     </div>
-    
+
     <div class="footer-section">
       <h4>Localização</h4>
       <p>Galeria Águas De Tambaú<br>
@@ -634,7 +621,7 @@
       Águas Claras<br>
       Brasília - DF, 71916-750</p>
     </div>
-    
+
     <div class="footer-section">
       <h4>Redes Sociais</h4>
       <ul>
@@ -644,74 +631,69 @@
       </ul>
     </div>
   </div>
-  
+
   <div class="footer-bottom">
     <p>© 2025 Loja Maçônica Águas Claras nº 4380. Todos os direitos reservados.<br>Um espaço para fraternidade, aprendizado e ação social em Brasília.</p>
   </div>
 </footer>
 
-</x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: &quot;100%&quot;, &quot;height&quot;: &quot;auto&quot;}}">
-class Component extends DCLogic {
-  state = {
-    currentSlide: 0,
-    openValue: null
-  };
-  
-  componentDidMount() {
-    this.slideInterval = setInterval(() => {
-      this.setState(s => ({
-        currentSlide: (s.currentSlide + 1) % 3
-      }));
+<script>
+(function () {
+  var slides = [
+    { kicker: "Sessão Solene", place: "Águas Claras, Brasília-DF" },
+    { kicker: "Palestra do Shriners", place: "Águas Claras, Brasília-DF" },
+    { kicker: "Sessão do A.E.A.O.N.M.S.", place: "Águas Claras, Brasília-DF" }
+  ];
+  var heroImages = document.querySelectorAll('.hero-image');
+  var dots = document.querySelectorAll('.carousel-dot');
+  var kickerEl = document.querySelector('.hero-caption .kicker');
+  var placeEl = document.querySelector('.hero-caption .place');
+  var current = 0;
+  var timer;
+
+  function render() {
+    heroImages.forEach(function (el, i) { el.classList.toggle('active', i === current); });
+    dots.forEach(function (el, i) { el.classList.toggle('active', i === current); });
+    kickerEl.textContent = slides[current].kicker;
+    placeEl.textContent = slides[current].place;
+  }
+
+  function goToSlide(index) {
+    current = index;
+    render();
+    resetTimer();
+  }
+
+  function resetTimer() {
+    clearInterval(timer);
+    timer = setInterval(function () {
+      current = (current + 1) % slides.length;
+      render();
     }, 6000);
   }
-  
-  componentWillUnmount() {
-    clearInterval(this.slideInterval);
-  }
-  
-  renderVals() {
-    const goToSlide = (index) => {
-      clearInterval(this.slideInterval);
-      this.setState({ currentSlide: index });
-      this.slideInterval = setInterval(() => {
-        this.setState(s => ({
-          currentSlide: (s.currentSlide + 1) % 3
-        }));
-      }, 6000);
-    };
-    
-    const toggleValue = (index) => {
-      this.setState(s => ({ openValue: s.openValue === index ? null : index }));
-    };
-    
-    const captions = [
-      { kicker: "Sessão Solene", place: "Águas Claras, Brasília-DF" },
-      { kicker: "Palestra do Shriners", place: "Águas Claras, Brasília-DF" },
-      { kicker: "Sessão do A.E.A.O.N.M.S.", place: "Águas Claras, Brasília-DF" }
-    ];
 
-    const cs = this.state.currentSlide;
-    const slideClass = (i) => `hero-image${cs === i ? ' active' : ''}`;
-    const dotClass = (i) => `carousel-dot${cs === i ? ' active' : ''}`;
+  dots.forEach(function (el, i) {
+    el.addEventListener('click', function () { goToSlide(i); });
+  });
 
-    return {
-      goToSlide,
-      toggleValue,
-      openValue: this.state.openValue,
-      heroCaption: captions[cs],
-      slide0: slideClass(0), slide1: slideClass(1), slide2: slideClass(2),
-      dot0: dotClass(0), dot1: dotClass(1), dot2: dotClass(2),
-      estatisticas: {
-        membros: "45+",
-        anos: "10",
-        projetos: "12",
-        sessoes: "2"
-      }
-    };
-  }
-}
+  resetTimer();
 
+  var openValue = null;
+  var cards = document.querySelectorAll('.value-card');
+  cards.forEach(function (card, i) {
+    card.addEventListener('click', function () {
+      openValue = openValue === i ? null : i;
+      cards.forEach(function (c, j) {
+        var ctx = c.querySelector('.value-context');
+        var hint = c.querySelector('.value-hint');
+        var isOpen = openValue === j;
+        ctx.style.display = isOpen ? 'block' : 'none';
+        hint.textContent = isOpen ? 'Clique para recolher' : 'Clique para saber mais';
+      });
+    });
+  });
+})();
 </script>
+
 </body>
 </html>
