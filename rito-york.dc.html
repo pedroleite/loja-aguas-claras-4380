@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>O Rito de York — Loja Maçônica Águas Claras nº 4380</title>
+  <link rel="stylesheet" href="_ds/classical-a9adfc2f-7c78-4c71-94f4-1b19c722f62c/styles.css">
+  <script src="_ds/classical-a9adfc2f-7c78-4c71-94f4-1b19c722f62c/_ds_bundle.js"></script>
+  <style>
+    a { color: var(--color-accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      background: var(--color-text);
+      color: var(--color-bg);
+      padding: var(--space-4) var(--space-8);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      font-size: 0.9rem;
+      border-bottom: 2px solid var(--color-accent);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    header h1 {
+      font-size: 1.2rem;
+      font-weight: var(--font-heading-weight);
+      letter-spacing: 0.3px;
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      margin: 0;
+    }
+    
+    header .logo {
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+    }
+    
+    header nav {
+      display: flex;
+      gap: var(--space-4);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    
+    header nav a { 
+      color: var(--color-accent); 
+      transition: opacity 0.3s;
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+    header nav a:hover { opacity: 0.75; text-decoration: none; }
+    
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: var(--space-8) var(--space-6);
+    }
+    
+    section {
+      margin-bottom: 4rem;
+    }
+    
+    section > h2 {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-4);
+      border-bottom: 2px solid var(--color-accent);
+      display: inline-block;
+    }
+    
+    .intro {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--color-accent-700);
+      line-height: 1.6;
+      margin-bottom: var(--space-8);
+    }
+    
+    .article p {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--color-text);
+      text-align: justify;
+      margin-bottom: var(--space-4);
+    }
+    
+    .article h4 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--color-accent-700);
+      margin: var(--space-8) 0 var(--space-4);
+      padding-top: var(--space-6);
+      border-top: 1px solid var(--color-divider);
+    }
+    
+    .article h4:first-child {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+    }
+    
+    .plate-row {
+      display: flex;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: var(--space-6) 0;
+    }
+    
+    .plate-row .plate {
+      margin: 0;
+      flex: 1;
+      min-width: 140px;
+      max-width: 260px;
+    }
+    
+    .plate {
+      margin: var(--space-8) auto;
+      padding: var(--space-4);
+      max-width: 420px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-divider);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .plate img {
+      width: 100%;
+      max-height: 480px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+    }
+    
+    .plate figcaption {
+      font-size: 0.85rem;
+      color: var(--color-neutral-700);
+      text-align: center;
+      margin-top: var(--space-3);
+      font-style: italic;
+    }
+    
+    blockquote {
+      margin: var(--space-6) 0;
+      padding: var(--space-4) var(--space-6);
+      background: white;
+      border-left: 3px solid var(--color-accent);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--color-text);
+      font-style: italic;
+    }
+    
+    footer {
+      background: var(--color-text);
+      color: var(--color-bg);
+      padding: var(--space-8) var(--space-6);
+      margin-top: 5rem;
+      border-top: 2px solid var(--color-accent);
+    }
+    
+    .footer-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--space-8);
+      margin-bottom: var(--space-6);
+    }
+    
+    .footer-section h4 {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin-bottom: var(--space-4);
+      color: var(--color-accent);
+    }
+    
+    .footer-section p {
+      font-size: 0.85rem;
+      line-height: 1.8;
+      color: #c9c4ba;
+      margin-bottom: 0;
+    }
+    
+    .footer-section a {
+      color: var(--color-accent);
+      transition: opacity 0.3s;
+    }
+    
+    .footer-section a:hover {
+      opacity: 0.85;
+      text-decoration: underline;
+    }
+    
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .footer-section li {
+      margin-bottom: var(--space-2);
+    }
+    
+    .footer-bottom {
+      border-top: 1px solid color-mix(in srgb, var(--color-accent) 30%, transparent);
+      padding-top: var(--space-6);
+      text-align: center;
+      font-size: 0.8rem;
+      color: #8f8983;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    
+    @media (max-width: 768px) {
+      main { padding: var(--space-6) var(--space-4); }
+      section > h2 { font-size: 1.5rem; }
+      .intro { font-size: 1.05rem; }
+      .plate { max-width: 100%; }
+      .plate img { max-height: 320px; }
+    }
+  </style>
+</helmet>
+
+<header>
+  <h1><img src="uploads/brasao.png" alt="Brasão" class="logo">Loja Maçônica Águas Claras nº 4380</h1>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="valores.html">Valores</a>
+    <a href="historia.html">História</a>
+    <a href="atividades.html">Atividades</a>
+    <a href="descubra.html">Descubra a Maçonaria</a>
+    <a href="rito-york.html">Rito de York</a>
+    <a href="gestao.html">Gestão</a>
+    <a href="localizacao.html">Localização</a>
+    <a href="contato.html">Contato</a>
+  </nav>
+</header>
+
+<main>
+  <section id="rito-york-historia">
+    <h2>Nossa História — O Rito de York no GOB</h2>
+    <p class="intro">A origem do nome, a trajetória dos maçons ingleses no Brasil e a convenção de 1912 que definiram o Rito que praticamos.</p>
+
+    <div class="article">
+      <h4>Um nome antigo</h4>
+      <p>A expressão "Rito de York", usada em muitos países para se referir aos trabalhos ritualísticos maçônicos na linha britânica, é de uso corrente no Brasil desde o surgimento da própria maçonaria no país. Uma das mais antigas referências no Brasil pode ser encontrada no periódico maçônico "O Sete D'Abril", publicado no Rio de Janeiro em 7 de julho de 1835, que cita: "Em Inglaterra, debaixo do Rito de York, temos outro exemplo (...)". Ou seja, pelo menos desde 1835 já se usava no Brasil o nome "Rito de York" para os trabalhos do craft inglês.</p>
+
+      <figure class="plate">
+        <img src="uploads/rito-york-jornal.jpg" alt="Cópia do periódico O Sete D'Abril, julho de 1835">
+        <figcaption>Cópia do periódico "O Sete D'Abril" — julho de 1835, evidência para o nome "Rito de York"</figcaption>
+      </figure>
+
+      <h4>Os maçons ingleses no Brasil</h4>
+      <p>Os maçons ingleses participam da história da maçonaria brasileira desde sua fundação. A Loja Commercio e Artes na Idade D'Ouro, que fundou o Grande Oriente do Brasil em 1822, tinha entre seus membros o maçom inglês Joseph Ewbank, iniciado em Londres em 1810. Em novembro de 1833, sete maçons ingleses peticionaram à Grande Loja Unida da Inglaterra (GLUI) uma Carta Constitutiva para a Orphan Lodge (Loja Órfã), recebida em 1834. Duas outras Lojas inglesas seguiram o mesmo caminho: a St. John's Lodge, no Rio, em 1839, e a Southern Cross Lodge, em Recife, em 1856. O que na Inglaterra se chama "Craft Masonry", no Brasil passou a se chamar Rito de York.</p>
+
+      <p>Estas três Lojas não tiveram vida longa — tiveram seus registros cancelados junto à GLUI em 1862 — mas marcaram oficialmente o contato do Brasil com o sistema ritualístico inglês. Tentativas posteriores de novas Cartas foram negadas pela GLUI, que respondeu em 1865:</p>
+
+      <blockquote>"É regra estabelecida pelo Grão-Mestre da Inglaterra de nunca conceder uma Carta Constitutiva para uma Loja reunir-se em um país onde esteja operando uma Grande Loja distinta. Esse é o caso do Rio de Janeiro, que creio estar sob a jurisdição do Grande Oriente do Brasil."</blockquote>
+
+      <p>O reconhecimento oficial do Grande Oriente do Brasil pela GLUI se daria apenas em 1880.</p>
+
+      <h4>A convenção de 1912</h4>
+      <p>O Grande Oriente do Brasil, diferente da Inglaterra, Irlanda, Escócia e EUA, administra mais de um sistema litúrgico dentro do que chamamos "simbolismo". Por isso, foi necessário nominar o trabalho ritualístico inspirado no Craft inglês como "Rito" no GOB — o que aconteceu em 1912, sob o Soberano Irmão Lauro Sodré, então Grão-Mestre do GOB.</p>
+
+      <p>Para existir um Rito no Brasil, era necessária a existência de um "Corpo Filosófico de Graus Superiores", como nos Ritos Escocês Antigo e Aceito, Moderno e Adonhiramita. No documento assinado por Lauro Sodré, consta (em português atual):</p>
+
+      <blockquote>"Esse Grande Capítulo será autoridade suprema, em matéria litúrgica, para todas as Lojas do Rito de York atualmente existentes no Brasil e para aquelas que no futuro forem criadas. (...) O Grande Capítulo se comporá de 33 membros efetivos, dos quais 28 serão eleitos dentre os maçons pertencentes às Oficinas do Rito e 5 serão o Grão-Mestre do Grande Oriente do Brasil, o Grão-Mestre Adjunto, o Grande Secretário Geral da Ordem, o Grande Tesoureiro e o Grande Chanceler."</blockquote>
+
+      <p>Este episódio foi único nas histórias do GOB e da GLUI: maçons ingleses fundaram Lojas inglesas no Brasil, sob jurisdição do GOB e com aprovação da GLUI, o que estreitou os laços entre as duas obediências. O nome "Rito de York" é uma lembrança constante desta amizade.</p>
+
+      <h4>Rito de York x Arco Real</h4>
+      <p>O Sagrado Arco Real (Holy Royal Arch) é considerado uma extensão do simbolismo pela GLUI desde o Tratado de União de 1813, que declara a Maçonaria constituída de três graus "incluindo a Ordem do Sagrado Arco Real". Ainda assim, o Grande Capítulo do Rito de York no GOB nunca administrou o Arco Real — restringiu-se aos três graus simbólicos e à Cerimônia de Instalação na Cadeira.</p>
+
+      <h4>Uma confusão comum</h4>
+      <p>Há quem confunda o nosso Rito de York com o "York Rite" americano, um sistema de dez graus praticado nos EUA após o grau de Mestre Maçom. Mas nos EUA, o que chamamos de "Simbolismo" no Brasil é chamado de "Blue Lodge" ou "Craft" — sem relação de nome com o York Rite. Existe ainda outro sistema americano, o "Antient and Accepted Scottish Rite" (30 graus), homônimo do nosso Rito Escocês Antigo e Aceito. Assim como ninguém confunde este com nossos graus simbólicos, não há razão para confundir o York Rite americano com nosso Rito de York.</p>
+
+      <h4>Do tratado de hoje</h4>
+      <p>O tratado de 1912 atendeu ao anseio dos maçons ingleses de praticar um ritual familiar. Por décadas, o Rito de York cresceu pouco, e somente a partir de 2003, com as Ordens Laterais inglesas sob jurisdição brasileira, maçons brasileiros passaram a se interessar mais — de poucas dezenas de Lojas para mais de uma centena hoje. O Rito é baseado no Emulation Ritual, praticado pela Emulation Lodge of Improvement for Master Masons (ELoI), referência mundial das cerimônias aprovadas pela GLUI em 1816, adequado à Constituição do GOB.</p>
+
+      <p>No Brasil, dada a multiplicidade de ritos praticados, foi necessário adotar um nome — e a convenção ocorreu em 1912 com "Rito de York", mantida até hoje.</p>
+    </div>
+  </section>
+
+  <section id="tratado-1912">
+    <h2>Cópia do Tratado de 1912</h2>
+    <p class="intro">A "Certidão de Nascimento" do Rito de York no GOB</p>
+    <div class="article">
+      <div class="plate-row">
+        <figure class="plate">
+          <img src="uploads/tratado-1912-pagina-1.jpg" alt="Cópia do Tratado de 1912 - página 1">
+          <figcaption>Página 1</figcaption>
+        </figure>
+
+        <figure class="plate">
+          <img src="uploads/tratado-1912-pagina-2.jpg" alt="Cópia do Tratado de 1912 - página 2">
+          <figcaption>Página 2</figcaption>
+        </figure>
+
+        <figure class="plate">
+          <img src="uploads/tratado-1912-pagina-3.jpg" alt="Cópia do Tratado de 1912 - página 3">
+          <figcaption>Página 3</figcaption>
+        </figure>
+      </div>
+
+      <p>Foi por intermédio do ato do Soberano Irmão Lauro Sodré, Grão-Mestre Geral do Grande Oriente do Brasil em 21 de dezembro de 1912 que nasceu o Rito de York na nossa Potência Maçônica. O documento original encontra-se na Biblioteca do GOB, em Brasília – DF.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <h4>Obediência</h4>
+      <p><strong>Grande Oriente do Brasil (GOB)</strong><br>
+      <strong>Grande Oriente do Distrito Federal (GODF)</strong><br>
+      Rito de York do GOB - Grande Oriente do Brasil</p>
+    </div>
+    
+    <div class="footer-section">
+      <h4>Fundação</h4>
+      <p>30 de abril de 2015<br>
+      Águas Claras, Brasília-DF</p>
+    </div>
+    
+    <div class="footer-section">
+      <h4>Localização</h4>
+      <p>Galeria Águas De Tambaú<br>
+      Av. das Castanheiras<br>
+      Águas Claras<br>
+      Brasília - DF, 71916-750</p>
+    </div>
+    
+    <div class="footer-section">
+      <h4>Redes Sociais</h4>
+      <ul>
+        <li><a href="https://instagram.com/lojaaguasclaras" target="_blank">Instagram: @lojaaguasclaras</a></li>
+        <li><a href="https://facebook.com" target="_blank">Facebook: Loja Maçônica Águas Claras</a></li>
+        <li><a href="https://youtube.com/@lojaaguasclaras" target="_blank">YouTube: @lojaaguasclaras</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>&copy; 2025 Loja Maçônica Águas Claras nº 4380. Todos os direitos reservados.<br>Um espaço para fraternidade, aprendizado e ação social em Brasília.</p>
+  </div>
+</footer>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: &quot;100%&quot;, &quot;height&quot;: &quot;auto&quot;}}"></script>
+</body>
+</html>

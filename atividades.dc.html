@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atividades — Loja Maçônica Águas Claras nº 4380</title>
+  <link rel="stylesheet" href="_ds/classical-a9adfc2f-7c78-4c71-94f4-1b19c722f62c/styles.css">
+  <script src="_ds/classical-a9adfc2f-7c78-4c71-94f4-1b19c722f62c/_ds_bundle.js"></script>
+  <style>
+    a { color: var(--color-accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      background: var(--color-text);
+      color: var(--color-bg);
+      padding: var(--space-4) var(--space-8);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      font-size: 0.9rem;
+      border-bottom: 2px solid var(--color-accent);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    header h1 {
+      font-size: 1.2rem;
+      font-weight: var(--font-heading-weight);
+      letter-spacing: 0.3px;
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      margin: 0;
+    }
+    
+    header .logo {
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+    }
+    
+    header nav {
+      display: flex;
+      gap: var(--space-4);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    
+    header nav a { 
+      color: var(--color-accent); 
+      transition: opacity 0.3s;
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+    header nav a:hover { opacity: 0.75; text-decoration: none; }
+    
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: var(--space-8) var(--space-6);
+    }
+    
+    section {
+      margin-bottom: 5rem;
+    }
+    
+    section > h2 {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-4);
+      border-bottom: 2px solid var(--color-accent);
+      display: inline-block;
+    }
+    
+    section p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--color-text);
+      max-width: 950px;
+      margin-bottom: var(--space-4);
+    }
+    
+    .activities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: var(--space-8);
+      margin-top: var(--space-6);
+    }
+    
+    .activity-card {
+      background: white;
+      padding: var(--space-8);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-divider);
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    
+    .activity-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+    
+    .activity-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--color-accent);
+      margin-bottom: var(--space-3);
+    }
+    
+    .activity-card p {
+      font-size: 0.95rem;
+      color: var(--color-neutral-700);
+      line-height: 1.7;
+    }
+    
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-6);
+      margin-top: var(--space-6);
+      background: white;
+      padding: var(--space-8);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-divider);
+    }
+    
+    .stat-item {
+      text-align: center;
+    }
+    
+    .stat-number {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--color-accent);
+      margin-bottom: var(--space-2);
+    }
+    
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--color-neutral-700);
+      line-height: 1.5;
+    }
+    
+    footer {
+      background: var(--color-text);
+      color: var(--color-bg);
+      padding: var(--space-8) var(--space-6);
+      margin-top: 5rem;
+      border-top: 2px solid var(--color-accent);
+    }
+    
+    .footer-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--space-8);
+      margin-bottom: var(--space-6);
+    }
+    
+    .footer-section h4 {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin-bottom: var(--space-4);
+      color: var(--color-accent);
+    }
+    
+    .footer-section p {
+      font-size: 0.85rem;
+      line-height: 1.8;
+      color: #c9c4ba;
+      margin-bottom: 0;
+    }
+    
+    .footer-section a {
+      color: var(--color-accent);
+      transition: opacity 0.3s;
+    }
+    
+    .footer-section a:hover {
+      opacity: 0.85;
+      text-decoration: underline;
+    }
+    
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .footer-section li {
+      margin-bottom: var(--space-2);
+    }
+    
+    .footer-bottom {
+      border-top: 1px solid color-mix(in srgb, var(--color-accent) 30%, transparent);
+      padding-top: var(--space-6);
+      text-align: center;
+      font-size: 0.8rem;
+      color: #8f8983;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    
+    @media (max-width: 768px) {
+      main { padding: var(--space-6) var(--space-4); }
+      section > h2 { font-size: 1.5rem; }
+      .stat-number { font-size: 1.8rem; }
+    }
+  </style>
+</helmet>
+
+<header>
+  <h1><img src="uploads/brasao.png" alt="Brasão" class="logo">Loja Maçônica Águas Claras nº 4380</h1>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="valores.html">Valores</a>
+    <a href="historia.html">História</a>
+    <a href="atividades.html">Atividades</a>
+    <a href="descubra.html">Descubra a Maçonaria</a>
+    <a href="rito-york.html">Rito de York</a>
+    <a href="gestao.html">Gestão</a>
+    <a href="localizacao.html">Localização</a>
+    <a href="contato.html">Contato</a>
+  </nav>
+</header>
+
+<main>
+  <section>
+    <h2>Nossas Atividades</h2>
+    <p>A Loja Maçônica Águas Claras nº 4380 desenvolve um amplo leque de atividades orientadas ao aperfeiçoamento pessoal, formação intelectual e contribuição social. Cada projeto reflete nosso compromisso com a fraternidade e a responsabilidade comunitária.</p>
+  </section>
+
+  <section>
+    <h2 style="border-bottom: none; margin-bottom: var(--space-8);">Principais Projetos</h2>
+    <div class="activities-grid">
+      <div class="activity-card">
+        <h3>Sessões Ritualisticas</h3>
+        <p>Realizadas a cada segunda e quarta quinta-feiras do mês. Nossas sessões seguem o Rito de York do GOB, promovendo educação moral e desenvolvimento espiritual através de trabalhos estruturados e reflexivos.</p>
+      </div>
+      
+      <div class="activity-card">
+        <h3>Educação e Formação</h3>
+        <p>Cursos e palestras sobre história da maçonaria, filosofia, ética, desenvolvimento pessoal e temas de interesse contemporâneo. Buscamos oferecer um ambiente de aprendizagem contínua para nossos membros.</p>
+      </div>
+      
+      <div class="activity-card">
+        <h3>Ação Social</h3>
+        <p>Projetos de auxílio a famílias em situação de vulnerabilidade, educação comunitária, apoio a crianças e adolescentes. Nossos irmãos dedicam tempo e recursos para transformar a realidade de Águas Claras e arredores.</p>
+      </div>
+      
+      <div class="activity-card">
+        <h3>Confraternização Fraternal</h3>
+        <p>Eventos e encontros que fortalecem os laços entre membros. Jantares, passeios e celebrações especiais que cultivam a amizade e o espírito de comunidade.</p>
+      </div>
+      
+      <div class="activity-card">
+        <h3>Pesquisa e Reflexão</h3>
+        <p>Grupos de estudo focados em textos clássicos maçônicos, filosofia, história e questões contemporâneas. Promovemos o pensamento crítico e o diálogo aberto entre membros.</p>
+      </div>
+      
+      <div class="activity-card">
+        <h3>Parcerias Comunitárias</h3>
+        <p>Colaboração com instituições locais, escolas, abrigos e organizações de assistência social. Buscamos amplificar nosso impacto através de parcerias estratégicas na comunidade.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Impacto da Loja</h2>
+    <div class="stats">
+      <div class="stat-item">
+        <div class="stat-number">45+</div>
+        <div class="stat-label">Membros Ativos Engajados</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">12</div>
+        <div class="stat-label">Projetos Sociais Ativos</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">24</div>
+        <div class="stat-label">Sessões por Ano</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">100+</div>
+        <div class="stat-label">Famílias Beneficiadas</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Próximos Passos</h2>
+    <p>Interessado em conhecer mais sobre nossas atividades? Visite-nos durante uma sessão aberta a visitantes ou entre em contato conosco para saber como participar. Buscamos sempre homens de boa vontade dispostos a contribuir para o bem comum.</p>
+    <a href="contato.html" style="display: inline-block; margin-top: var(--space-4); padding: var(--space-3) var(--space-8); background: transparent; color: var(--color-accent); border: 1px solid var(--color-accent); border-radius: var(--radius-md); font-size: 0.9rem; font-weight: 400; text-decoration: none; transition: background 0.3s, color 0.3s;">Solicitar Visita →</a>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <h4>Obediência</h4>
+      <p><strong>Grande Oriente do Brasil (GOB)</strong><br>
+      <strong>Grande Oriente do Distrito Federal (GODF)</strong><br>
+      Rito de York do GOB - Grande Oriente do Brasil</p>
+    </div>
+    
+    <div class="footer-section">
+      <h4>Fundação</h4>
+      <p>30 de abril de 2015<br>
+      Águas Claras, Brasília-DF</p>
+    </div>
+    
+    <div class="footer-section">
+      <h4>Localização</h4>
+      <p>Galeria Águas De Tambaú<br>
+      Av. das Castanheiras<br>
+      Águas Claras<br>
+      Brasília - DF, 71916-750</p>
+    </div>
+    
+    <div class="footer-section">
+      <h4>Redes Sociais</h4>
+      <ul>
+        <li><a href="https://instagram.com/lojaaguasclaras" target="_blank">Instagram: @lojaaguasclaras</a></li>
+        <li><a href="https://facebook.com" target="_blank">Facebook: Loja Maçônica Águas Claras</a></li>
+        <li><a href="https://youtube.com/@lojaaguasclaras" target="_blank">YouTube: @lojaaguasclaras</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>&copy; 2025 Loja Maçônica Águas Claras nº 4380. Todos os direitos reservados.<br>Um espaço para fraternidade, aprendizado e ação social em Brasília.</p>
+  </div>
+</footer>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: &quot;100%&quot;, &quot;height&quot;: &quot;auto&quot;}}"></script>
+</body>
+</html>

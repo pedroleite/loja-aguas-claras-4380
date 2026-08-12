@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Descubra a Maçonaria — Loja Maçônica Águas Claras nº 4380</title>
+  <link rel="stylesheet" href="_ds/classical-a9adfc2f-7c78-4c71-94f4-1b19c722f62c/styles.css">
+  <script src="_ds/classical-a9adfc2f-7c78-4c71-94f4-1b19c722f62c/_ds_bundle.js"></script>
+  <style>
+    a { color: var(--color-accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      background: var(--color-text);
+      color: var(--color-bg);
+      padding: var(--space-4) var(--space-8);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      font-size: 0.9rem;
+      border-bottom: 2px solid var(--color-accent);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    header h1 {
+      font-size: 1.2rem;
+      font-weight: var(--font-heading-weight);
+      letter-spacing: 0.3px;
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      margin: 0;
+    }
+    
+    header .logo {
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+    }
+    
+    header nav {
+      display: flex;
+      gap: var(--space-4);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    
+    header nav a { 
+      color: var(--color-accent); 
+      transition: opacity 0.3s;
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+    header nav a:hover { opacity: 0.75; text-decoration: none; }
+    
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: var(--space-8) var(--space-6);
+    }
+    
+    section {
+      margin-bottom: 5rem;
+    }
+    
+    section > h2 {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-4);
+      border-bottom: 2px solid var(--color-accent);
+      display: inline-block;
+    }
+    
+    .subsection {
+      margin-top: var(--space-8);
+    }
+    
+    .subsection h3 {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--color-accent);
+      margin-bottom: var(--space-4);
+      padding-bottom: var(--space-3);
+      border-bottom: 1px solid var(--color-divider);
+    }
+    
+    .subsection p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--color-text);
+      max-width: 950px;
+      margin-bottom: var(--space-4);
+    }
+    
+    .subsection ul {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--color-text);
+      max-width: 950px;
+      margin-bottom: var(--space-4);
+      padding-left: var(--space-8);
+    }
+    
+    .subsection li {
+      margin-bottom: var(--space-2);
+    }
+    
+    .faq-item {
+      background: white;
+      padding: var(--space-6);
+      margin-bottom: var(--space-4);
+      border-radius: var(--radius-md);
+      border-left: 3px solid var(--color-accent);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .faq-item h4 {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: var(--space-3);
+    }
+    
+    .faq-item p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--color-neutral-700);
+      margin-bottom: 0;
+    }
+    
+    .famous-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: var(--space-8);
+      margin-top: var(--space-6);
+    }
+    
+    .famous-card {
+      background: white;
+      padding: var(--space-6);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-divider);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .famous-card img {
+      width: 180px !important;
+      height: 200px !important;
+      object-fit: cover !important;
+      border-radius: var(--radius-md);
+      margin-bottom: var(--space-4) !important;
+    }
+    
+    .famous-card-content {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .famous-card h4 {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--color-accent);
+      margin-bottom: var(--space-2);
+      margin-top: 0;
+    }
+    
+    .famous-card p {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--color-neutral-700);
+      margin-bottom: 0;
+    }
+    
+    footer {
+      background: var(--color-text);
+      color: var(--color-bg);
+      padding: var(--space-8) var(--space-6);
+      margin-top: 5rem;
+      border-top: 2px solid var(--color-accent);
+    }
+    
+    .footer-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--space-8);
+      margin-bottom: var(--space-6);
+    }
+    
+    .footer-section h4 {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin-bottom: var(--space-4);
+      color: var(--color-accent);
+    }
+    
+    .footer-section p {
+      font-size: 0.85rem;
+      line-height: 1.8;
+      color: #c9c4ba;
+      margin-bottom: 0;
+    }
+    
+    .footer-section a {
+      color: var(--color-accent);
+      transition: opacity 0.3s;
+    }
+    
+    .footer-section a:hover {
+      opacity: 0.85;
+      text-decoration: underline;
+    }
+    
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .footer-section li {
+      margin-bottom: var(--space-2);
+    }
+    
+    .footer-bottom {
+      border-top: 1px solid color-mix(in srgb, var(--color-accent) 30%, transparent);
+      padding-top: var(--space-6);
+      text-align: center;
+      font-size: 0.8rem;
+      color: #8f8983;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    
+    @media (max-width: 768px) {
+      main { padding: var(--space-6) var(--space-4); }
+      section > h2 { font-size: 1.5rem; }
+      .subsection h3 { font-size: 1.3rem; }
+    }
+  </style>
+</helmet>
+
+<header>
+  <h1><img src="uploads/brasao.png" alt="Brasão" class="logo">Loja Maçônica Águas Claras nº 4380</h1>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="valores.html">Valores</a>
+    <a href="historia.html">História</a>
+    <a href="atividades.html">Atividades</a>
+    <a href="descubra.html">Descubra a Maçonaria</a>
+    <a href="gestao.html">Gestão</a>
+    <a href="localizacao.html">Localização</a>
+    <a href="contato.html">Contato</a>
+  </nav>
+</header>
+
+<main>
+  <section>
+    <h2>Descubra a Maçonaria</h2>
+    <p>A Maçonaria é uma instituição filantrópica, iniciática e filosófica que reúne homens de boa vontade, independentemente de suas origens, crenças religiosas ou posição social. Aberta e transparente, a maçonaria trabalha pelo aperfeiçoamento moral e intelectual da humanidade.</p>
+
+    <div class="subsection">
+      <h3>O que é Maçonaria?</h3>
+      <p>A Maçonaria é uma organização de caráter humanitário que pratica a filantropia, cultiva a educação e promove a liberdade de pensamento. Ela reúne homens que compartilham o compromisso com princípios éticos universais: liberdade, igualdade e fraternidade.</p>
+      <p><strong>Características principais:</strong></p>
+      <ul>
+        <li><strong>Livre:</strong> Aberta a homens de todas as crenças e origens que compartilhem bons princípios</li>
+        <li><strong>Igualitária:</strong> Todos os membros possuem voz e voto; as diferenças sociais dissolvem-se no templo</li>
+        <li><strong>Transparente:</strong> Nada é secreto em termos de propósito e ações; trabalha à luz do dia</li>
+        <li><strong>Filantrópica:</strong> Dedicada ao bem comum e ao alívio do sofrimento alheio</li>
+        <li><strong>Educativa:</strong> Promove educação moral, intelectual e espiritual contínua</li>
+      </ul>
+    </div>
+
+    <div class="subsection">
+      <h3>História da Maçonaria</h3>
+      <p>As origens da Maçonaria moderna remontam ao século XVII em Londres, com a fundação da Grande Loja da Inglaterra em 1717. Contudo, suas raízes filosóficas mergulham na tradição de construção das grandes catedrais medievais, onde operários livres (masons) compartilhavam conhecimentos e princípios de irmandade.</p>
+      <p>A Maçonaria moderna se desenvolveu como movimento filosófico do Iluminismo, atraindo intelectuais, artistas e homens públicos que acreditavam na razão, na educação e na transformação social. Expandiu-se globalmente e, no Brasil, está presente desde o século XVIII, contribuindo significativamente para o desenvolvimento do país.</p>
+      <p>No Brasil, a maçonaria teve papel fundamental na independência, na abolição da escravatura e na democracia. O Grande Oriente do Brasil (GOB), fundado em 1822, é uma das obediências maçônicas mais antigas e influentes do mundo.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>O Rito de York</h3>
+      <p>O Rito de York é uma forma de trabalho maçônico que busca reconstruir a prática inglesa do século XVIII. Praticado globalmente, é reconhecido por sua clareza, sobriedade e fidelidade aos princípios originais da Maçonaria.</p>
+      <p><strong>Características:</strong></p>
+      <ul>
+        <li>Estrutura clara dos três graus: Aprendiz, Companheiro e Mestre</li>
+        <li>Ritualística bem definida e padronizada</li>
+        <li>Ênfase na educação moral e no aperfeiçoamento pessoal</li>
+        <li>Trabalho baseado em símbolos da construção (esquadro, compasso, nível, prumo)</li>
+        <li>Abertura para reflexão e estudo contínuo</li>
+      </ul>
+      <p><a href="rito-york.html">Leia a história completa do Rito de York no GOB →</a></p>
+    </div>
+
+    <div class="subsection">
+      <h3>O Arco Real (Royal Arch)</h3>
+      <p>O Arco Real é considerado a culminação da Maçonaria simbólica, complementando o grau de Mestre Maçom dentro da tradição do Rito de York. Muitas vezes descrito como "o Complemento Sublime da Maçonaria", aprofunda temas de busca, descoberta e restauração.</p>
+      <p><strong>Características:</strong></p>
+      <ul>
+        <li>Continuação direta da jornada iniciada nos três graus simbólicos</li>
+        <li>Ênfase em temas de reconstrução, perseverança e verdade</li>
+        <li>Praticado em capítulos organizados dentro da estrutura do Rito de York</li>
+        <li>Aprofunda o simbolismo e a reflexão moral apresentados na Maçonaria Azul</li>
+      </ul>
+    </div>
+
+    <div class="subsection">
+      <h3>Cavalaria Maçônica (Rito de York)</h3>
+      <p>Os graus de Cavalaria fazem parte da tradição do Rito de York, inspirados nos ideais das antigas ordens de cavalaria medievais: honra, coragem, lealdade e fé. Representam uma etapa avançada de desenvolvimento pessoal e espiritual dentro da jornada maçônica.</p>
+      <p><strong>Características:</strong></p>
+      <ul>
+        <li>Inspiração nos valores cavalheirescos históricos: honra, defesa da fé e proteção aos vulneráveis</li>
+        <li>Organizados em Comendarias dentro da estrutura do Rito de York</li>
+        <li>Aprofundam princípios de disciplina pessoal e compromisso com causas maiores</li>
+        <li>Complementam a formação iniciada no Arco Real e nos graus simbólicos</li>
+      </ul>
+    </div>
+
+    <div class="subsection">
+      <h3>Perguntas Frequentes</h3>
+      
+      <div class="faq-item">
+        <h4>A Maçonaria é uma religião?</h4>
+        <p>Não. A Maçonaria respeita todas as religiões e reúne homens de diferentes crenças. Ela é uma instituição filosófica e filantrópica que promove valores éticos universais, não substituindo ou competindo com religiões organizadas.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Como se torna um maçom?</h4>
+        <p>Um homem que deseja ingressar na Maçonaria deve apresentar uma petição a uma Loja, ser recomendado por membros já filiados e passar por um processo investigativo. Após aprovação, será iniciado nos graus (Aprendiz, Companheiro e Mestre) através de cerimônias ritualísticas que marca etapas de desenvolvimento pessoal.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Quais são os objetivos da Maçonaria?</h4>
+        <p>A Maçonaria trabalha para o aperfeiçoamento moral e intelectual de seus membros e contribui para o bem comum através de projetos sociais. Promove educação, filantropia, e a construção de uma sociedade mais justa, igualitária e fraterna.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>A Maçonaria é elitista?</h4>
+        <p>Não. Apesar de selectiva (a Maçonaria analisa cuidadosamente os candidatos para preservar a qualidade moral da Loja), ela é fundamentalmente igualitária. Nela, um pedreiro e um executivo são irmãos com os mesmos direitos, deveres e respeito.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Qual é a relação entre Maçonaria e política?</h4>
+        <p>A Maçonaria como instituição é apolítica. Porém, promove valores éticos que impactam naturalmente a vida cívica de seus membros. Maçons participam da política como cidadãos responsáveis, sempre buscando servir ao bem comum.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Como visitar uma Loja?</h4>
+        <p>Visite a Loja Maçônica Águas Claras nº 4380. Visitantes de outras Lojas são bem-vindos em nossas sessões. Entre em contato conosco para confirmar presença e tirar dúvidas.</p>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3>Maçons Brasileiros e no Mundo</h3>
+      <p>A Maçonaria atraiu e continua atraindo homens de excelência que contribuem para a transformação social. Muitos personagens históricos foram maçons, deixando legado de integridade e compromisso com a humanidade.</p>
+      
+      <h4 style="font-family: var(--font-heading); font-size: 1.2rem; font-weight: 400; color: var(--color-text); margin-top: var(--space-6); margin-bottom: var(--space-4);">Destaque: Maçons Brasileiros</h4>
+      <div class="famous-grid">
+        <div class="famous-card">
+          <img src="uploads/tiradentes.jpg" alt="Tiradentes">
+          <div class="famous-card-content">
+            <h4>Tiradentes</h4>
+            <p>Líder da Inconfidência Mineira, símbolo de luta pela liberdade e independência brasileira.</p>
+          </div>
+        </div>
+        <div class="famous-card">
+          <img src="uploads/jose-bonifacio.jpg" alt="José Bonifácio">
+          <div class="famous-card-content">
+            <h4>José Bonifácio</h4>
+            <p>Patriarca da Independência, deputado e estadista que moldou as instituições brasileiras.</p>
+          </div>
+        </div>
+        <div class="famous-card">
+          <img src="uploads/ruy-barbosa.jpg" alt="Ruy Barbosa">
+          <div class="famous-card-content">
+            <h4>Ruy Barbosa</h4>
+            <p>Jurista, jornalista e político; defensor da Abolição, da República e da Constituição.</p>
+          </div>
+        </div>
+        <div class="famous-card">
+          <img src="uploads/luiz-gama.jpg" alt="Luiz Gama">
+          <div class="famous-card-content">
+            <h4>Luiz Gama</h4>
+            <p>Advogado, abolicionista e poeta que libertou centenas de escravizados pela lei.</p>
+          </div>
+        </div>
+      </div>
+      
+      <h4 style="font-family: var(--font-heading); font-size: 1.2rem; font-weight: 400; color: var(--color-text); margin-top: var(--space-6); margin-bottom: var(--space-4);">Maçons Históricos no Mundo</h4>
+      <div class="famous-grid">
+        <div class="famous-card">
+          <h4>Benjamin Franklin</h4>
+          <p>Cientista e diplomata americano, um dos fundadores dos EUA.</p>
+        </div>
+        <div class="famous-card">
+          <h4>Wolfgang Amadeus Mozart</h4>
+          <p>Compositor austríaco que celebrou a fraternidade em sua ópera "A Flauta Mágica".</p>
+        </div>
+        <div class="famous-card">
+          <h4>Harry Truman</h4>
+          <p>33º Presidente dos EUA, maçom de destaque no século XX.</p>
+        </div>
+        <div class="famous-card">
+          <h4>Albert Einstein</h4>
+          <p>Físico teórico revolucionário que defendia educação e humanismo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <h4>Obediência</h4>
+      <p><strong>Grande Oriente do Brasil (GOB)</strong><br>
+      <strong>Grande Oriente do Distrito Federal (GODF)</strong><br>
+      Rito de York do GOB - Grande Oriente do Brasil</p>
+    </div>
+    
+    <div class="footer-section">
+      <h4>Fundação</h4>
+      <p>30 de abril de 2015<br>
+      Águas Claras, Brasília-DF</p>
+    </div>
+    
+    <div class="footer-section">
+      <h4>Localização</h4>
+      <p>Galeria Águas De Tambaú<br>
+      Av. das Castanheiras<br>
+      Águas Claras<br>
+      Brasília - DF, 71916-750</p>
+    </div>
+    
+    <div class="footer-section">
+      <h4>Redes Sociais</h4>
+      <ul>
+        <li><a href="https://instagram.com/lojaaguasclaras" target="_blank">Instagram: @lojaaguasclaras</a></li>
+        <li><a href="https://facebook.com" target="_blank">Facebook: Loja Maçônica Águas Claras</a></li>
+        <li><a href="https://youtube.com/@lojaaguasclaras" target="_blank">YouTube: @lojaaguasclaras</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>&copy; 2025 Loja Maçônica Águas Claras nº 4380. Todos os direitos reservados.<br>Um espaço para fraternidade, aprendizado e ação social em Brasília.</p>
+  </div>
+</footer>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: &quot;100%&quot;, &quot;height&quot;: &quot;auto&quot;}}"></script>
+</body>
+</html>

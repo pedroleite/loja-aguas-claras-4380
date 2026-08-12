@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>História — Loja Maçônica Águas Claras nº 4380</title>
+  <link rel="stylesheet" href="_ds/classical-a9adfc2f-7c78-4c71-94f4-1b19c722f62c/styles.css">
+  <script src="_ds/classical-a9adfc2f-7c78-4c71-94f4-1b19c722f62c/_ds_bundle.js"></script>
+  <style>
+    a { color: var(--color-accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      background: var(--color-text);
+      color: var(--color-bg);
+      padding: var(--space-4) var(--space-8);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      font-size: 0.9rem;
+      border-bottom: 2px solid var(--color-accent);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    header h1 {
+      font-size: 1.2rem;
+      font-weight: var(--font-heading-weight);
+      letter-spacing: 0.3px;
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      margin: 0;
+    }
+    
+    header .logo {
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+    }
+    
+    header nav {
+      display: flex;
+      gap: var(--space-4);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    
+    header nav a { 
+      color: var(--color-accent); 
+      transition: opacity 0.3s;
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+    header nav a:hover { opacity: 0.75; text-decoration: none; }
+    
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: var(--space-8) var(--space-6);
+    }
+    
+    section > h2 {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-4);
+      border-bottom: 2px solid var(--color-accent);
+      display: inline-block;
+    }
+    
+    section p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--color-text);
+      max-width: 950px;
+      margin-bottom: var(--space-4);
+    }
+    
+    .timeline {
+      position: relative;
+      margin-top: var(--space-8);
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 29px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--color-accent);
+    }
+    
+    .timeline-item {
+      margin-bottom: var(--space-8);
+      padding-left: 90px;
+      position: relative;
+    }
+    
+    .timeline-dot {
+      position: absolute;
+      left: 0;
+      top: 6px;
+      width: 60px;
+      height: 60px;
+      background: var(--color-bg);
+      border: 3px solid var(--color-accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--color-accent);
+    }
+    
+    .timeline-content {
+      background: white;
+      padding: var(--space-6);
+      border-radius: var(--radius-md);
+      border-left: 2px solid var(--color-divider);
+    }
+    
+    .timeline-content h3 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: var(--space-2);
+    }
+    
+    .timeline-content p {
+      font-size: 0.95rem;
+      color: var(--color-neutral-700);
+      margin-bottom: 0;
+    }
+    
+    .rito-menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-6);
+      margin-top: var(--space-6);
+    }
+    
+    .rito-card {
+      display: block;
+      position: relative;
+      background: white;
+      padding: var(--space-8) var(--space-6);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-divider);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    
+    .rito-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--color-accent);
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 0.35s ease;
+    }
+    
+    .rito-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .rito-card:hover::before {
+      transform: scaleY(1);
+    }
+    
+    .rito-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: var(--space-3);
+      transition: color 0.3s ease;
+    }
+    
+    .rito-card:hover h3 {
+      color: var(--color-accent);
+    }
+    
+    .rito-card p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--color-neutral-700);
+      margin-bottom: var(--space-4);
+    }
+    
+    .rito-card .rito-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: 0.85rem;
+      color: var(--color-accent);
+      font-weight: 500;
+    }
+    
+    .rito-card .rito-link .arrow {
+      display: inline-block;
+      transition: transform 0.35s ease;
+    }
+    
+    .rito-card:hover .rito-link .arrow {
+      transform: translateX(5px);
+    }
+    
+    footer {
+      background: var(--color-text);
+      color: var(--color-bg);
+      padding: var(--space-8) var(--space-6);
+      margin-top: 5rem;
+      border-top: 2px solid var(--color-accent);
+    }
+    
+    .footer-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--space-8);
+      margin-bottom: var(--space-6);
+    }
+    
+    .footer-section h4 {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin-bottom: var(--space-4);
+      color: var(--color-accent);
+    }
+    
+    .footer-section p {
+      font-size: 0.85rem;
+      line-height: 1.8;
+      color: #c9c4ba;
+      margin-bottom: 0;
+    }
+    
+    .footer-section a {
+      color: var(--color-accent);
+      transition: opacity 0.3s;
+    }
+    
+    .footer-section a:hover {
+      opacity: 0.85;
+      text-decoration: underline;
+    }
+    
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .footer-section li {
+      margin-bottom: var(--space-2);
+    }
+    
+    .footer-bottom {
+      border-top: 1px solid color-mix(in srgb, var(--color-accent) 30%, transparent);
+      padding-top: var(--space-6);
+      text-align: center;
+      font-size: 0.8rem;
+      color: #8f8983;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    
+    @media (max-width: 768px) {
+      main { padding: var(--space-6) var(--space-4); }
+      section > h2 { font-size: 1.5rem; }
+      .timeline::before { left: 19px; }
+      .timeline-item { padding-left: 70px; }
+      .timeline-dot { width: 48px; height: 48px; font-size: 0.95rem; }
+    }
+  </style>
+</helmet>
+
+<header>
+  <h1><img src="uploads/brasao.png" alt="Brasão" class="logo">Loja Maçônica Águas Claras nº 4380</h1>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="valores.html">Valores</a>
+    <a href="historia.html">História</a>
+    <a href="atividades.html">Atividades</a>
+    <a href="descubra.html">Descubra a Maçonaria</a>
+    <a href="rito-york.html">Rito de York</a>
+    <a href="gestao.html">Gestão</a>
+    <a href="localizacao.html">Localização</a>
+    <a href="contato.html">Contato</a>
+  </nav>
+</header>
+
+<main>
+  <section>
+    <h2>Nossa História</h2>
+    <p>A Loja Maçônica Águas Claras nº 4380 nasceu da visão de um grupo de homens comprometidos com os ideais de fraternidade, educação e responsabilidade social. Desde sua fundação, tem sido um espaço de encontro, reflexão e ação em Brasília.</p>
+    
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot">2015</div>
+        <div class="timeline-content">
+          <h3>Fundação</h3>
+          <p>Em 30 de abril de 2015, a Loja Maçônica Águas Claras nº 4380 é constituída e filiada ao Grande Oriente do Brasil (GOB) e Grande Oriente do Distrito Federal (GODF). Adota o Rito de York do GOB como base de seus trabalhos, seguindo a tradição maçônica moderna estabelecida no século XVIII.</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-dot">2015-2017</div>
+        <div class="timeline-content">
+          <h3>Consolidação Inicial</h3>
+          <p>Os primeiros anos foram dedicados ao estabelecimento da Loja em Águas Claras, recrutamento de membros de qualidade, implementação das estruturas de governança e início de projetos sociais. Neste período, a Loja estabeleceu suas bases operacionais na Galeria Águas De Tambaú.</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-dot">2017-2020</div>
+        <div class="timeline-content">
+          <h3>Expansão Comunitária</h3>
+          <p>A Loja intensificou seus trabalhos em prol da comunidade local. Projetos de educação, apoio a famílias em situação de vulnerabilidade e parcerias com instituições comunitárias marcaram este período. A frequência de sessões se consolidou nas segundas e quartas quintas-feiras.</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-dot">2020-2022</div>
+        <div class="timeline-content">
+          <h3>Adaptação e Resiliência</h3>
+          <p>Durante a pandemia de COVID-19, a Loja se adaptou mantendo a continuidade dos trabalhos através de sessões virtuais quando necessário. Ainda assim, apoiou membros em dificuldade e manteve os princípios de solidariedade vivos, demostrando a força dos laços fraternos.</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-dot">2022-Hoje</div>
+        <div class="timeline-content">
+          <h3>Modernização e Visibilidade</h3>
+          <p>A Loja reafirma seu compromisso com a transparência e a inclusão, expandindo sua presença nas redes sociais, aprimorando sua comunicação com a comunidade e consolidando projetos de impacto social duradouro. Hoje, soma-se a mais de 45 membros ativos e continua atraindo homens interessados em crescimento pessoal e contribuição social.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>O Rito que Praticamos</h2>
+    <p>Nossa Loja segue o Rito de York do GOB. Aprofunde-se na origem deste Rito e nos documentos que marcaram sua fundação.</p>
+    <div class="rito-menu">
+      <a href="rito-york.html#rito-york-historia" class="rito-card">
+        <h3>O Rito de York no GOB</h3>
+        <p>A origem do nome, os maçons ingleses no Brasil e a convenção de 1912 que definiu o Rito que praticamos.</p>
+        <span class="rito-link">Ler a história <span class="arrow">→</span></span>
+      </a>
+      <a href="rito-york.html#tratado-1912" class="rito-card">
+        <h3>Cópia do Tratado de 1912</h3>
+        <p>A "Certidão de Nascimento" do Rito de York no GOB — o documento original assinado pelo Grão-Mestre Lauro Sodré.</p>
+        <span class="rito-link">Ver o documento <span class="arrow">→</span></span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <h4>Obediência</h4>
+      <p><strong>Grande Oriente do Brasil (GOB)</strong><br>
+      <strong>Grande Oriente do Distrito Federal (GODF)</strong><br>
+      Rito de York do GOB - Grande Oriente do Brasil</p>
+    </div>
+    
+    <div class="footer-section">
+      <h4>Fundação</h4>
+      <p>30 de abril de 2015<br>
+      Águas Claras, Brasília-DF</p>
+    </div>
+    
+    <div class="footer-section">
+      <h4>Localização</h4>
+      <p>Galeria Águas De Tambaú<br>
+      Av. das Castanheiras<br>
+      Águas Claras<br>
+      Brasília - DF, 71916-750</p>
+    </div>
+    
+    <div class="footer-section">
+      <h4>Redes Sociais</h4>
+      <ul>
+        <li><a href="https://instagram.com/lojaaguasclaras" target="_blank">Instagram: @lojaaguasclaras</a></li>
+        <li><a href="https://facebook.com" target="_blank">Facebook: Loja Maçônica Águas Claras</a></li>
+        <li><a href="https://youtube.com/@lojaaguasclaras" target="_blank">YouTube: @lojaaguasclaras</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>&copy; 2025 Loja Maçônica Águas Claras nº 4380. Todos os direitos reservados.<br>Um espaço para fraternidade, aprendizado e ação social em Brasília.</p>
+  </div>
+</footer>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: &quot;100%&quot;, &quot;height&quot;: &quot;auto&quot;}}"></script>
+</body>
+</html>

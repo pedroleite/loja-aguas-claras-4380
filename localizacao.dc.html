@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Localização - Loja Maçônica Águas Claras nº 4380</title>
+  <link rel="stylesheet" href="_ds/classical-a9adfc2f-7c78-4c71-94f4-1b19c722f62c/styles.css">
+  <script src="_ds/classical-a9adfc2f-7c78-4c71-94f4-1b19c722f62c/_ds_bundle.js"></script>
+  <style>
+    a { color: var(--color-accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      background: var(--color-text);
+      color: var(--color-bg);
+      padding: var(--space-6) var(--space-8);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      border-bottom: 1px solid var(--color-divider);
+    }
+    
+    header h1 {
+      font-size: 1.3rem;
+      font-weight: var(--font-heading-weight);
+      letter-spacing: 0.3px;
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+    }
+    
+    header .logo {
+      width: 50px;
+      height: 50px;
+      flex-shrink: 0;
+    }
+    
+    header nav {
+      display: flex;
+      gap: var(--space-8);
+    }
+    
+    header a { color: var(--color-accent); transition: opacity 0.3s; }
+    header a:hover { opacity: 0.85; text-decoration: none; }
+    
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: var(--space-8) var(--space-6);
+    }
+    
+    section {
+      margin-bottom: 5rem;
+      animation: fadeIn 0.6s ease-out;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    section > h2 {
+      font-family: var(--font-heading);
+      font-size: 1.9rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-4);
+      border-bottom: 1px solid var(--color-divider);
+      display: inline-block;
+    }
+    
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-8);
+      margin-top: var(--space-6);
+    }
+    
+    .location-info {
+      background: var(--color-bg);
+      padding: var(--space-8);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-divider);
+    }
+    
+    .location-info h3 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: var(--space-4);
+    }
+    
+    .location-info p {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: var(--color-text);
+      margin-bottom: var(--space-4);
+    }
+    
+    .address-block {
+      background: white;
+      padding: var(--space-4) var(--space-6);
+      border-left: 2px solid var(--color-accent);
+      border-radius: var(--radius-md);
+      margin-bottom: var(--space-6);
+    }
+    
+    .address-block strong {
+      color: var(--color-text);
+      display: block;
+      margin-bottom: var(--space-2);
+    }
+    
+    .instructions {
+      background: white;
+      padding: var(--space-6);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-divider);
+      margin-bottom: var(--space-6);
+    }
+    
+    .instructions h4 {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: var(--space-3);
+    }
+    
+    .instructions p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--color-neutral-700);
+      margin-bottom: var(--space-2);
+    }
+    
+    .map-container {
+      background: var(--color-surface);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--color-divider);
+      height: 500px;
+    }
+    
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    footer {
+      background: var(--color-text);
+      color: var(--color-bg);
+      padding: var(--space-8) var(--space-6);
+      margin-top: 4rem;
+    }
+    
+    .footer-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--space-8);
+      margin-bottom: var(--space-6);
+    }
+    
+    .footer-section h4 {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin-bottom: var(--space-4);
+      color: var(--color-accent);
+    }
+    
+    .footer-section p {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: #c9c4ba;
+    }
+    
+    .footer-section a {
+      color: var(--color-accent);
+      transition: opacity 0.3s;
+    }
+    
+    .footer-section a:hover {
+      opacity: 0.85;
+      text-decoration: underline;
+    }
+    
+    .footer-bottom {
+      border-top: 1px solid color-mix(in srgb, var(--color-accent) 30%, transparent);
+      padding-top: var(--space-6);
+      text-align: center;
+      font-size: 0.8rem;
+      color: #8f8983;
+    }
+    
+    @media (max-width: 768px) {
+      header { flex-direction: column; gap: var(--space-4); text-align: center; }
+      header nav { flex-direction: column; gap: var(--space-3); }
+      main { padding: var(--space-6) var(--space-4); }
+      section { margin-bottom: 3rem; }
+      section > h2 { font-size: 1.4rem; }
+      .location-grid { grid-template-columns: 1fr; }
+      .map-container { height: 350px; }
+    }
+  </style>
+</helmet>
+
+<header>
+  <h1><img src="uploads/brasao.png" alt="Brasão" class="logo">Loja Maçônica Águas Claras nº 4380</h1>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="valores.html">Valores</a>
+    <a href="historia.html">História</a>
+    <a href="atividades.html">Atividades</a>
+    <a href="descubra.html">Descubra a Maçonaria</a>
+    <a href="rito-york.html">Rito de York</a>
+    <a href="gestao.html">Gestão</a>
+    <a href="localizacao.html">Localização</a>
+    <a href="contato.html">Contato</a>
+  </nav>
+</header>
+
+<main>
+  <section id="localizacao">
+    <div style="text-align: center; margin-bottom: var(--space-8);">
+      <img src="uploads/brasao.png" alt="Brasão da Loja Maçônica Águas Claras nº 4380" style="width: 140px; height: 140px; margin-bottom: var(--space-4);">
+      <h2 style="display: block;">Localização e Como Chegar</h2>
+    </div>
+    
+    <div class="location-grid">
+      <div class="location-info">
+        <h3>Endereço</h3>
+        <div class="address-block">
+          <strong>Galeria Águas De Tambaú</strong>
+          Av. das Castanheiras<br>
+          Águas Claras<br>
+          Brasília - DF, 71916-750
+        </div>
+        
+        <h3 style="margin-top: var(--space-8);">Como Chegar</h3>
+        
+        <div class="instructions">
+          <h4>🚗 De Carro</h4>
+          <p><strong>Do Centro de Brasília:</strong> Siga pela Eixo Monumental em direção a Águas Claras. Acesse a Av. das Castanheiras. A Galeria Águas De Tambaú localiza-se nesta avenida, na região comercial de Águas Claras. Há amplo estacionamento ao redor do prédio, facilitando o acesso de quem vem de carro.</p>
+          <p><strong>Duração aproximada:</strong> 20-30 minutos, dependendo do ponto de partida.</p>
+        </div>
+        
+        <div class="instructions">
+          <h4>🚇 De Metrô</h4>
+          <p><strong>Estação Águas Claras (Linha Verde):</strong> Desça na Estação Águas Claras. Siga as indicações de saída em direção à Av. das Castanheiras. A Galeria fica a poucos minutos da estação, caminhando pela avenida principal da região.</p>
+          <p><strong>Duração aproximada:</strong> 2-3 minutos a pé da estação.</p>
+          <p><strong>Informações:</strong> Consulte <a href="https://www.metro.df.gov.br/" target="_blank">MetrôDF</a> para horários e tarifas atualizadas.</p>
+        </div>
+      </div>
+      
+      <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+        <img src="uploads/edificio.png" alt="Foto da Galeria Águas De Tambaú" style="width: 100%; height: auto; border-radius: var(--radius-md); border: 1px solid var(--color-divider);">
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.6580505!2d-48.0216647!3d-15.8361372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935a326e93448e1f%3A0xeb08f69318881c3f!2sLoja%20Ma%C3%A7%C3%B4nica%20%C3%81guas%20Claras%20N%C2%BA%204380!5e0!3m2!1spt-BR!2sbr!4v1691617200000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <h4>Localização</h4>
+      <p>Galeria Águas De Tambaú<br>Av. das Castanheiras<br>Águas Claras<br>Brasília - DF, 71916-750</p>
+    </div>
+    
+    <div class="footer-section">
+      <h4>Sessões</h4>
+      <p>2º e 4º quintas-feiras do mês<br>às 20:30h</p>
+    </div>
+    
+    <div class="footer-section">
+      <h4>Contato</h4>
+      <p>Redes Sociais:<br>
+      <a href="https://instagram.com/lojaaguasclaras" target="_blank">@lojaaguasclaras</a> (Instagram)<br>
+      <a href="https://facebook.com" target="_blank">Loja Maçônica de Águas Claras e Amigos</a> (Facebook)<br>
+      <a href="https://youtube.com/@lojaaguasclaras" target="_blank">@lojaaguasclaras</a> (YouTube)</p>
+    </div>
+    
+    <div class="footer-section">
+      <h4>Princípios</h4>
+      <p>Instituição dedicada à fraternidade, benevolência, verdade e tolerância. Aberta a homens de boa reputação e boa vontade.</p>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>&copy; 2025 Loja Maçônica Águas Claras nº 4380. Todos os direitos reservados.<br>Um espaço para fraternidade, aprendizado e ação social em Brasília.</p>
+  </div>
+</footer>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: &quot;100%&quot;, &quot;height&quot;: &quot;auto&quot;}}"></script>
+</body>
+</html>

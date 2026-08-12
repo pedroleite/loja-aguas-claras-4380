@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gestão — Loja Maçônica Águas Claras nº 4380</title>
+  <link rel="stylesheet" href="_ds/classical-a9adfc2f-7c78-4c71-94f4-1b19c722f62c/styles.css">
+  <script src="_ds/classical-a9adfc2f-7c78-4c71-94f4-1b19c722f62c/_ds_bundle.js"></script>
+  <style>
+    a { color: var(--color-accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      background: var(--color-text);
+      color: var(--color-bg);
+      padding: var(--space-4) var(--space-8);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      font-size: 0.9rem;
+      border-bottom: 2px solid var(--color-accent);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    header h1 {
+      font-size: 1.2rem;
+      font-weight: var(--font-heading-weight);
+      letter-spacing: 0.3px;
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      margin: 0;
+    }
+    
+    header .logo {
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+    }
+    
+    header nav {
+      display: flex;
+      gap: var(--space-4);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    
+    header nav a { 
+      color: var(--color-accent); 
+      transition: opacity 0.3s;
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+    header nav a:hover { opacity: 0.75; text-decoration: none; }
+    
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: var(--space-8) var(--space-6);
+    }
+    
+    section {
+      margin-bottom: 5rem;
+    }
+    
+    section > h2 {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-4);
+      border-bottom: 2px solid var(--color-accent);
+      display: inline-block;
+    }
+    
+    section p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--color-text);
+      max-width: 950px;
+      margin-bottom: var(--space-4);
+    }
+    
+    .officers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--space-6);
+      margin-top: var(--space-6);
+    }
+    
+    .officer-card {
+      background: white;
+      padding: var(--space-6);
+      border-radius: var(--radius-md);
+      border-left: 3px solid var(--color-accent);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .officer-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: var(--space-2);
+    }
+    
+    .officer-card .role {
+      font-size: 0.85rem;
+      color: var(--color-accent);
+      font-weight: 500;
+    }
+    
+    .objectives-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-6) var(--space-8);
+      margin-top: var(--space-6);
+    }
+    
+    .objective-item {
+      display: flex;
+      gap: var(--space-4);
+      align-items: flex-start;
+      padding-bottom: var(--space-4);
+      border-bottom: 1px solid var(--color-divider);
+    }
+    
+    .objective-item .num {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 400;
+      line-height: 1;
+      color: var(--color-accent);
+      flex-shrink: 0;
+    }
+    
+    .objective-item p {
+      margin-bottom: 0;
+      font-size: 0.98rem;
+      line-height: 1.6;
+    }
+    
+    .past-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-4);
+      margin-top: var(--space-6);
+    }
+    
+    .past-card {
+      text-align: center;
+      padding: var(--space-4) var(--space-3);
+      border-top: 1px solid var(--color-divider);
+    }
+    
+    .past-card .period {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      color: var(--color-accent);
+      margin-bottom: var(--space-2);
+    }
+    
+    .past-card .name {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--color-text);
+      line-height: 1.4;
+    }
+    
+    footer {
+      background: var(--color-text);
+      color: var(--color-bg);
+      padding: var(--space-8) var(--space-6);
+      margin-top: 5rem;
+      border-top: 2px solid var(--color-accent);
+    }
+    
+    .footer-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--space-8);
+      margin-bottom: var(--space-6);
+    }
+    
+    .footer-section h4 {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin-bottom: var(--space-4);
+      color: var(--color-accent);
+    }
+    
+    .footer-section p {
+      font-size: 0.85rem;
+      line-height: 1.8;
+      color: #c9c4ba;
+      margin-bottom: 0;
+    }
+    
+    .footer-section a {
+      color: var(--color-accent);
+      transition: opacity 0.3s;
+    }
+    
+    .footer-section a:hover {
+      opacity: 0.85;
+      text-decoration: underline;
+    }
+    
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .footer-section li {
+      margin-bottom: var(--space-2);
+    }
+    
+    .footer-bottom {
+      border-top: 1px solid color-mix(in srgb, var(--color-accent) 30%, transparent);
+      padding-top: var(--space-6);
+      text-align: center;
+      font-size: 0.8rem;
+      color: #8f8983;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    
+    @media (max-width: 768px) {
+      main { padding: var(--space-6) var(--space-4); }
+      section > h2 { font-size: 1.5rem; }
+      .objectives-list { grid-template-columns: 1fr; }
+    }
+  </style>
+</helmet>
+
+<header>
+  <h1><img src="uploads/brasao.png" alt="Brasão" class="logo">Loja Maçônica Águas Claras nº 4380</h1>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="valores.html">Valores</a>
+    <a href="historia.html">História</a>
+    <a href="atividades.html">Atividades</a>
+    <a href="descubra.html">Descubra a Maçonaria</a>
+    <a href="rito-york.html">Rito de York</a>
+    <a href="gestao.html">Gestão</a>
+    <a href="localizacao.html">Localização</a>
+    <a href="contato.html">Contato</a>
+  </nav>
+</header>
+
+<main>
+  <section>
+    <h2>Nossos Objetivos</h2>
+    <div class="objectives-list">
+      <div class="objective-item">
+        <span class="num">1</span>
+        <p>Congregar os Irmãos de Águas Claras</p>
+      </div>
+      <div class="objective-item">
+        <span class="num">2</span>
+        <p>Envolver-se e participar da vida da cidade</p>
+      </div>
+      <div class="objective-item">
+        <span class="num">3</span>
+        <p>Praticar, desenvolver e expandir o Rito de York do GOB - Grande Oriente do Brasil</p>
+      </div>
+      <div class="objective-item">
+        <span class="num">4</span>
+        <p>Obedecer e fortalecer os Princípios da Maçonaria</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Diretoria Atual</h2>
+    <p>Conheça os irmãos que hoje conduzem os trabalhos da Loja Maçônica Águas Claras nº 4380.</p>
+    <div class="officers-grid">
+      <div class="officer-card">
+        <h3>Adisson Martins Ferreira</h3>
+        <span class="role">Venerável Mestre</span>
+      </div>
+      <div class="officer-card">
+        <h3>Rafael Felipe dos Santos</h3>
+        <span class="role">1º Vigilante</span>
+      </div>
+      <div class="officer-card">
+        <h3>Luciano de Almeida Rego</h3>
+        <span class="role">2º Vigilante</span>
+      </div>
+      <div class="officer-card">
+        <h3>Heráclio de Lucena Arcoverde</h3>
+        <span class="role">Secretário</span>
+      </div>
+      <div class="officer-card">
+        <h3>Juscelino Kubitschek de Oliveira</h3>
+        <span class="role">1º Diácono e Diretor de Caridade</span>
+      </div>
+      <div class="officer-card">
+        <h3>Fabrício Nunes Lara</h3>
+        <span class="role">2º Diácono</span>
+      </div>
+      <div class="officer-card">
+        <h3>Flávio Gouveia Camelo Ramiro</h3>
+        <span class="role">Guarda Interno</span>
+      </div>
+      <div class="officer-card">
+        <h3>Nelson Carlos Moura de França</h3>
+        <span class="role">Guarda Externo</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Veneráveis Mestres Passados</h2>
+    <p>Homenagem aos irmãos que dirigiram a Loja desde sua fundação em 2015.</p>
+    <div class="past-grid">
+      <div class="past-card">
+        <span class="period">2015</span>
+        <span class="name">Walmir Ferreira dos Santos</span>
+      </div>
+      <div class="past-card">
+        <span class="period">2015-2016</span>
+        <span class="name">Renato Moraes Pereira da Luz</span>
+      </div>
+      <div class="past-card">
+        <span class="period">2016-2017</span>
+        <span class="name">Fabricio Rossi Fernandes Lima</span>
+      </div>
+      <div class="past-card">
+        <span class="period">2017-2018</span>
+        <span class="name">Marcelo Emilio Gêa Martins</span>
+      </div>
+      <div class="past-card">
+        <span class="period">2018-2019</span>
+        <span class="name">José Antônio Licassali Júnior</span>
+      </div>
+      <div class="past-card">
+        <span class="period">2019-2021</span>
+        <span class="name">Pedro Leite Silva</span>
+      </div>
+      <div class="past-card">
+        <span class="period">2021-2022</span>
+        <span class="name">Petersend Araújo Brito</span>
+      </div>
+      <div class="past-card">
+        <span class="period">2022-2023</span>
+        <span class="name">Ary Lacerda</span>
+      </div>
+      <div class="past-card">
+        <span class="period">2023-2024</span>
+        <span class="name">Rafael Moraes Pereira da Luz</span>
+      </div>
+      <div class="past-card">
+        <span class="period">2024-2025</span>
+        <span class="name">Charles Dickens</span>
+      </div>
+      <div class="past-card">
+        <span class="period">2025-2026</span>
+        <span class="name">Anderson Moura e Sousa</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <h4>Obediência</h4>
+      <p><strong>Grande Oriente do Brasil (GOB)</strong><br>
+      <strong>Grande Oriente do Distrito Federal (GODF)</strong><br>
+      Rito de York do GOB - Grande Oriente do Brasil</p>
+    </div>
+    
+    <div class="footer-section">
+      <h4>Fundação</h4>
+      <p>30 de abril de 2015<br>
+      Águas Claras, Brasília-DF</p>
+    </div>
+    
+    <div class="footer-section">
+      <h4>Localização</h4>
+      <p>Galeria Águas De Tambaú<br>
+      Av. das Castanheiras<br>
+      Águas Claras<br>
+      Brasília - DF, 71916-750</p>
+    </div>
+    
+    <div class="footer-section">
+      <h4>Redes Sociais</h4>
+      <ul>
+        <li><a href="https://instagram.com/lojaaguasclaras" target="_blank">Instagram: @lojaaguasclaras</a></li>
+        <li><a href="https://facebook.com" target="_blank">Facebook: Loja Maçônica Águas Claras</a></li>
+        <li><a href="https://youtube.com/@lojaaguasclaras" target="_blank">YouTube: @lojaaguasclaras</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>&copy; 2025 Loja Maçônica Águas Claras nº 4380. Todos os direitos reservados.<br>Um espaço para fraternidade, aprendizado e ação social em Brasília.</p>
+  </div>
+</footer>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: &quot;100%&quot;, &quot;height&quot;: &quot;auto&quot;}}"></script>
+</body>
+</html>
