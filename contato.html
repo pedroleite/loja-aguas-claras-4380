@@ -24,15 +24,24 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px s
       background: var(--color-text);
       color: var(--color-bg);
       padding: var(--space-4) var(--space-6);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: var(--space-4);
       font-size: 0.9rem;
       border-bottom: 2px solid var(--color-accent);
       position: sticky;
       top: 0;
       z-index: 100;
+    }
+
+
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-4);
+
+
     }
 
     .brand {
@@ -407,6 +416,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px s
 <body>
 
 <header>
+  <div class="header-inner">
   <a href="index.html" class="brand">
     <img src="uploads/brasao.png" alt="Brasão" class="logo">
     <h1 class="site-title"><span class="brand-full">Loja Maçônica Águas Claras nº 4380</span><span class="brand-short">Águas Claras nº 4380</span></h1>
@@ -424,6 +434,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px s
     <a href="localizacao.html">Localização</a>
     <a href="contato.html">Contato</a>
   </nav>
+  </div>
 </header>
 
 <main>
