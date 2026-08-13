@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pedroleite.github.io/loja-aguas-claras-4380/sitemap.xml

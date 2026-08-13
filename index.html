@@ -631,7 +631,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px s
   <div class="hero-image" style="background-image: url('uploads/palestra-shriners.jpg'); background-position: center 50%;"></div>
 
   <div class="hero-caption">
-    <span class="kicker">Sessão Solene</span>
+    <span class="kicker">Sessão Inaugural da Nova Gestão</span>
     <span class="place">Águas Claras, Brasília-DF</span>
   </div>
 
@@ -652,7 +652,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px s
   <section id="valores">
     <h2>Os Princípios que Fundamentam a Ordem</h2>
     <div class="values-grid">
-      <div class="value-card">
+      <div class="value-card" tabindex="0" role="button" aria-expanded="false">
         <h3>Amor Fraternal</h3>
         <p class="value-tagline">A irmandade que transcende diferenças.</p>
         <div class="value-context" style="display: none;">
@@ -660,7 +660,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px s
         </div>
         <p class="value-hint">Clique para saber mais</p>
       </div>
-      <div class="value-card">
+      <div class="value-card" tabindex="0" role="button" aria-expanded="false">
         <h3>Caridade</h3>
         <p class="value-tagline">Ação que transforma vidas.</p>
         <div class="value-context" style="display: none;">
@@ -668,7 +668,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px s
         </div>
         <p class="value-hint">Clique para saber mais</p>
       </div>
-      <div class="value-card">
+      <div class="value-card" tabindex="0" role="button" aria-expanded="false">
         <h3>Verdade</h3>
         <p class="value-tagline">Honra em cada ação.</p>
         <div class="value-context" style="display: none;">
@@ -819,16 +819,24 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px s
 
   var openValue = null;
   var cards = document.querySelectorAll('.value-card');
+  function toggleCard(i) {
+    openValue = openValue === i ? null : i;
+    cards.forEach(function (c, j) {
+      var ctx = c.querySelector('.value-context');
+      var hint = c.querySelector('.value-hint');
+      var isOpen = openValue === j;
+      ctx.style.display = isOpen ? 'block' : 'none';
+      hint.textContent = isOpen ? 'Clique para recolher' : 'Clique para saber mais';
+      c.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+  }
   cards.forEach(function (card, i) {
-    card.addEventListener('click', function () {
-      openValue = openValue === i ? null : i;
-      cards.forEach(function (c, j) {
-        var ctx = c.querySelector('.value-context');
-        var hint = c.querySelector('.value-hint');
-        var isOpen = openValue === j;
-        ctx.style.display = isOpen ? 'block' : 'none';
-        hint.textContent = isOpen ? 'Clique para recolher' : 'Clique para saber mais';
-      });
+    card.addEventListener('click', function () { toggleCard(i); });
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleCard(i);
+      }
     });
   });
 })();
