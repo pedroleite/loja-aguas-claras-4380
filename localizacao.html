@@ -291,6 +291,28 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px s
       color: var(--color-neutral-800);
       margin-bottom: var(--space-2);
     }
+
+    .route-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-top: var(--space-3);
+      padding: var(--space-3) var(--space-6);
+      background: transparent;
+      color: var(--color-accent);
+      border: 1px solid var(--color-accent);
+      border-radius: var(--radius-md);
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .route-btn:hover {
+      background: var(--color-accent);
+      color: white;
+      text-decoration: none;
+    }
     
     .map-container {
       background: var(--color-surface);
@@ -482,6 +504,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px s
           <p><strong>Estação Arniqueira (Linha Verde):</strong> Desça na Estação Arniqueira. Siga as indicações de saída em direção à Av. das Castanheiras. A Galeria fica a uma curta caminhada da estação, pela avenida principal da região.</p>
           <p><strong>Duração aproximada:</strong> 650m — cerca de 9 minutos a pé da estação.</p>
           <p><strong>Informações:</strong> Consulte <a href="https://www.metro.df.gov.br/" target="_blank" rel="noopener">MetrôDF</a> para horários e tarifas atualizadas.</p>
+          <a class="route-btn" href="https://www.google.com/maps/dir/?api=1&origin=Esta%C3%A7%C3%A3o+Arniqueira,+Bras%C3%ADlia+-+DF&destination=-15.8361372,-48.0216647&travelmode=walking" target="_blank" rel="noopener">Traçar rota da Estação Arniqueira até a loja →</a>
         </div>
       </div>
       
