@@ -76,7 +76,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px s
 
   header nav {
     display: flex;
-    gap: var(--space-4);
+    gap: var(--space-3);
     list-style: none;
     margin: 0;
     padding: 0;
@@ -85,11 +85,15 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px s
 
   header nav a {
     color: var(--color-accent);
-    transition: opacity 0.3s;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     white-space: nowrap;
+    padding: var(--space-2) 0;
+    transition: color 0.3s;
   }
-  header nav a:hover { opacity: 0.75; text-decoration: none; }
+  header nav a:hover {
+    color: var(--color-bg);
+    text-decoration: none;
+  }
 
   .nav-toggle-checkbox { display: none; }
   .nav-backdrop { display: none; }
@@ -710,7 +714,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px s
 <main>
   <section id="bem-vindo">
     <h2>Bem-vindo</h2>
-    <p>A Loja Maçônica Águas Claras nº 4380, filiada ao Grande Oriente do Brasil (GOB) e Grande Oriente do Distrito Federal (GODF), é uma instituição dedicada ao aperfeiçoamento moral, intelectual e social de seus membros e da comunidade. Praticamos os Rito de York do GOB, fundamentos da tradição maçônica moderna.</p>
+    <p>A Loja Maçônica Águas Claras nº 4380, filiada ao Grande Oriente do Brasil (GOB) e jurisdicionada ao Grande Oriente do Distrito Federal (GODF), é uma instituição dedicada ao aperfeiçoamento moral, intelectual e social de seus membros e da comunidade. Praticamos os Rito de York do GOB, fundamentos da tradição maçônica moderna.</p>
     <p>Desde sua fundação em 30 de abril de 2015, acolhemos homens de boa reputação que compartilham o compromisso com a fraternidade, a benevolência e a busca pela verdade. Somos um espaço de reflexão, aprendizado e ação social em Brasília.</p>
     <a href="descubra.html" class="cta-button">Descubra a Maçonaria →</a>
   </section>
