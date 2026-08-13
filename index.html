@@ -26,7 +26,7 @@
     --color-accent-100: #f3e6cc;
   }
 
-  a { color: var(--color-accent); text-decoration: none; }
+  a { color: var(--color-accent-700); text-decoration: none; }
   a:hover { text-decoration: underline; }
 a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
 
@@ -376,7 +376,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px s
 
   .value-card .value-tagline {
     font-style: italic;
-    color: var(--color-accent);
+    color: var(--color-accent-700);
     margin-bottom: 0;
   }
 
@@ -419,7 +419,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px s
   .testimonial-author {
     font-size: 0.85rem;
     font-weight: 500;
-    color: var(--color-accent);
+    color: var(--color-accent-700);
   }
 
   .testimonial-role {
@@ -474,7 +474,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px s
 
   .final-cta .cta-button-solid {
     background: var(--color-accent);
-    color: white;
+    color: var(--color-text);
     border: 1px solid var(--color-accent);
   }
 
@@ -497,8 +497,8 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px s
     margin-top: var(--space-6);
     padding: var(--space-3) var(--space-8);
     background: transparent;
-    color: var(--color-accent);
-    border: 1px solid var(--color-accent);
+    color: var(--color-accent-700);
+    border: 1px solid var(--color-accent-700);
     border-radius: var(--radius-md);
     font-size: 0.9rem;
     font-weight: 400;
@@ -529,7 +529,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px s
     font-family: var(--font-heading);
     font-size: 2.2rem;
     font-weight: 400;
-    color: var(--color-accent);
+    color: var(--color-accent-700);
     margin-bottom: var(--space-2);
   }
 
@@ -655,6 +655,10 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px s
     color: var(--color-footer-text-muted);
     max-width: 1100px;
     margin: 0 auto;
+  }
+
+  .footer-bottom a {
+    color: var(--color-accent);
   }
 
   @media (max-width: 768px) {
